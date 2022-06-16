@@ -1,29 +1,28 @@
 package com.work.service.impl;
 
-import com.work.mapper.CusMapper;
-import com.work.model.Customer;
-import com.work.service.CusService;
+import com.work.mapper.ProMapper;
+import com.work.model.Product;
+import com.work.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
-@Service("CusService")
-public class CusServiceImpl implements CusService {
+@Service("ProductService")
+public class ProServiceImpl implements ProductService {
 
     @Autowired
-    private CusMapper mapper;
+    private ProMapper mapper;
 
     @Override
-    public List<Customer> selectAll() {
+    public List<Product> selectAll() {
         return mapper.selectAll();
     }
 
     @Override
-    public boolean add(Customer customer) {
+    public boolean add(Product product) {
         try {
-            mapper.insert(customer);
+            mapper.insert(product);
             return true;
         }catch (Exception e){
             System.out.println(e);
@@ -32,9 +31,9 @@ public class CusServiceImpl implements CusService {
     }
 
     @Override
-    public boolean edit(Customer customer) {
+    public boolean edit(Product product) {
         try {
-            mapper.updateByPrimaryKey(customer);
+            mapper.updateByPrimaryKey(product);
             return true;
         }catch (Exception e){
             System.out.println(e);
@@ -43,15 +42,13 @@ public class CusServiceImpl implements CusService {
     }
 
     @Override
-    public boolean delete(String userId) {
+    public boolean delete(String pId) {
         try {
-            mapper.deleteByPrimaryKey(userId);
+            mapper.deleteByPrimaryKey(pId);
             return true;
         }catch (Exception e){
             System.out.println(e);
         }
         return false;
     }
-
-
 }

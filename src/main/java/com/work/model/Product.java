@@ -3,6 +3,7 @@ package com.work.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table(name = "product")
@@ -16,6 +17,8 @@ public class Product {
      * 图片
      * 价格
      * **/
+    @Id
+    private int pId;
     private String pName;
     private int reserve;
     private String imgUrl;

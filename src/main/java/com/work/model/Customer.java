@@ -3,6 +3,8 @@ package com.work.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Table(name = "customer")
@@ -16,6 +18,8 @@ public class Customer {
      * 积分
      * 生日
      * **/
+    @Id
+    private int userId;
     private String userName;
     private String telNum;
     private double integral;

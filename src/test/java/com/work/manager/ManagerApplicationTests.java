@@ -16,7 +16,7 @@ class ManagerApplicationTests {
 
     @Test
     void contextLoads() {
-        Customer customer = new Customer("lihua", "233", 50, "233");
+        Customer customer = new Customer(0, "lihua", "233", 50, "233");
         System.out.println(service.selectAll().toString());
     }
 

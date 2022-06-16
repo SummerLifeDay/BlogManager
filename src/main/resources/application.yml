@@ -8,6 +8,11 @@ spring:
     password: root
     url: jdbc:mysql://localhost:3306/manager
     driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
 mybatis:
   type-aliases-package: com.work.model
   configuration:
