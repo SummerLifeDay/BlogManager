@@ -1,23 +1,23 @@
 package com.work.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.relational.core.mapping.Table;
 
+@Table(name = "product")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Product {
     /**
      * 商品名
      * 库存
      * 图片
+     * 价格
      * **/
-    @Getter
-    @Setter
     private String pName;
-
-    @Getter
-    @Setter
     private int reserve;
-
-    @Getter
-    @Setter
     private String imgUrl;
+    private double price;
 }

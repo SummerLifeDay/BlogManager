@@ -1,8 +1,14 @@
 package com.work.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.relational.core.mapping.Table;
 
+@Table(name = "customer")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Customer {
     /**
      * 客户姓名
@@ -10,19 +16,8 @@ public class Customer {
      * 积分
      * 生日
      * **/
-    @Getter
-    @Setter
     private String userName;
-
-    @Getter
-    @Setter
     private String telNum;
-
-    @Getter
-    @Setter
-    private String integral;
-
-    @Getter
-    @Setter
+    private double integral;
     private String birthday;
 }

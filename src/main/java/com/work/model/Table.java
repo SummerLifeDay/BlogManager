@@ -1,8 +1,13 @@
 package com.work.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@org.springframework.data.relational.core.mapping.Table(name = "table")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Table {
 
     /**
@@ -11,20 +16,8 @@ public class Table {
      * 餐桌容纳人数
      * 是否包厢
      * */
-
-    @Getter
-    @Setter
     private int dinerNum;
-
-    @Getter
-    @Setter
-    private boolean isFree;
-
-    @Getter
-    @Setter
+    private int isFree;
     private int totalNum;
-
-    @Getter
-    @Setter
-    private boolean isBox;
+    private int isBox;
 }

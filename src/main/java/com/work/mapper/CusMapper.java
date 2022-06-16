@@ -1,14 +1,11 @@
 package com.work.mapper;
 
 import com.work.model.Customer;
+import com.work.utils.GeneralMapper;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
+@Repository
 @Mapper
-public interface CusMapper {
-
-    @Select("select * from Customer")
-    List<Customer> selectAll();
+public interface CusMapper extends GeneralMapper<Customer> {
 }

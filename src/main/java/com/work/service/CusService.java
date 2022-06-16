@@ -1,6 +1,10 @@
 package com.work.service;
 
+import com.work.model.Customer;
+
+import java.util.List;
+
 public interface CusService {
 
-    void selectAll();
+    List<Customer> selectAll();
 }

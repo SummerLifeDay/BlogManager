@@ -1,8 +1,14 @@
 package com.work.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.data.relational.core.mapping.Table;
 
+@Table(name = "order")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Order {
     /**
      * 订单号
@@ -11,24 +17,10 @@ public class Order {
      * 是否使用优惠券
      * 是否使用餐桌
      * **/
-    @Getter
-    @Setter
     private String orderNum;
-
-    @Getter
-    @Setter
     private String customer;
-
-    @Getter
-    @Setter
     private double price;
-
-    @Getter
-    @Setter
-    private boolean useCoupon;
-
-    @Getter
-    @Setter
-    private boolean useTable;
+    private int useCoupon;
+    private int useTable;
 
 }

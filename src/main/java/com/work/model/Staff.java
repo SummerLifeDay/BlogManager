@@ -5,20 +5,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table(name = "coupon")
+@Table(name = "staff")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Coupon {
+public class Staff {
 
     /**
-     * 折扣
-     * 优惠券编号
-     * 有效期
-     * 发放一次优惠券数量
+     * 账号
+     * 密码
+     * 角色
+     * 昵称
      * */
-    private double discount;
-    private String couponNum;
-    private String term;
-    private int count;
+    private String userName;
+    private String password;
+    private int role;
+    private String nickName;
 }
