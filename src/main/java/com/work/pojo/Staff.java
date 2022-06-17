@@ -17,9 +17,9 @@ public class Staff {
      * 角色
      * 昵称
      * */
-    private int staffId;
+    private Integer staffId;
     private String userName;
     private String password;
-    private int role;
+    private Integer role;
     private String nickName;
 }
