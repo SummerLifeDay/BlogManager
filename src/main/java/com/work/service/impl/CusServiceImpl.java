@@ -42,7 +42,7 @@ public class CusServiceImpl implements CusService {
     }
 
     @Override
-    public boolean delete(String userId) {
+    public boolean delete(int userId) {
         try {
             mapper.deleteByPrimaryKey(userId);
             return true;

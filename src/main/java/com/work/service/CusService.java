@@ -12,5 +12,5 @@ public interface CusService {
 
     boolean edit(Customer customer);
 
-    boolean delete(String userId);
+    boolean delete(int userId);
 }

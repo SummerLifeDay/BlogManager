@@ -33,12 +33,12 @@ public class CusController {
     }
 
     @PostMapping(value = "/admin/customer/update")
-    public boolean update(String userName, String telNum,int integral, String birthday){
-        return service.edit(new Customer(null, userName, telNum, integral, birthday));
+    public boolean update(int userId, String userName, String telNum,int integral, String birthday){
+        return service.edit(new Customer(userId, userName, telNum, integral, birthday));
     }
 
     @PostMapping(value = "/admin/customer/del")
-    public boolean del(String userId){
+    public boolean del(int userId){
         return service.delete(userId);
     }
 }

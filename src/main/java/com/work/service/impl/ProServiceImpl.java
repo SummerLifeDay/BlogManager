@@ -42,7 +42,7 @@ public class ProServiceImpl implements ProductService {
     }
 
     @Override
-    public boolean delete(String pId) {
+    public boolean delete(int pId) {
         try {
             mapper.deleteByPrimaryKey(pId);
             return true;

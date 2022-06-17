@@ -25,8 +25,8 @@ public class TableServiceImpl implements TableService {
     }
 
     @Override
-    public int updateState(Table table) {
-        return mapper.updateByPrimaryKey(new Table(table.getDinerNum(), table.getIsFree(), null, null));
+    public int updateState(int dinerNum, int isFree) {
+        return mapper.updateByPrimaryKey(new Table(dinerNum, isFree, null, null));
     }
 
     @Override

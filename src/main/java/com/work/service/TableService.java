@@ -9,7 +9,7 @@ public interface TableService {
 
     Table selectOneByNum(int dinerNum);
 
-    int updateState(Table table);
+    int updateState(int dinerNum, int isFree);
 
     int add(Table table);
 

@@ -12,5 +12,5 @@ public interface ProductService {
 
     boolean edit(Product product);
 
-    boolean delete(String pId);
+    boolean delete(int pId);
 }
