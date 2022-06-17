@@ -18,7 +18,7 @@ public class Customer {
      * 生日
      * **/
     @Id
-    private int userId;
+    private Integer userId;
     private String userName;
     private String telNum;
     private double integral;

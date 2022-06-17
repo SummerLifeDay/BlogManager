@@ -18,9 +18,9 @@ public class Product {
      * 价格
      * **/
     @Id
-    private int pId;
+    private Integer pId;
     private String pName;
-    private int reserve;
+    private Integer reserve;
     private String imgUrl;
     private double price;
 }

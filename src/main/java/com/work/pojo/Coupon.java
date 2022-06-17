@@ -20,5 +20,5 @@ public class Coupon {
     private double discount;
     private String couponNum;
     private String term;
-    private int count;
+    private Integer count;
 }

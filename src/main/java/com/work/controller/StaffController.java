@@ -34,9 +34,7 @@ public class StaffController {
         try {
             subject.login(token);
             return "index";
-        }catch (UnknownAccountException e){
-            return "login";
-        }catch (IncorrectCredentialsException e){
+        }catch (UnknownAccountException | IncorrectCredentialsException e){
             return "login";
         }
     }
