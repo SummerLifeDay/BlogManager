@@ -1,7 +1,7 @@
 package com.work.service.impl;
 
 import com.work.mapper.ProMapper;
-import com.work.model.Product;
+import com.work.pojo.Product;
 import com.work.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

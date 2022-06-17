@@ -1,9 +1,7 @@
 package com.work.controller;
 
-import com.work.model.Customer;
-import com.work.service.CusService;
+import com.work.pojo.Customer;
 import com.work.service.impl.CusServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

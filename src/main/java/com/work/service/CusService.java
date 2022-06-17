@@ -1,6 +1,6 @@
 package com.work.service;
 
-import com.work.model.Customer;
+import com.work.pojo.Customer;
 
 import java.util.List;
 
