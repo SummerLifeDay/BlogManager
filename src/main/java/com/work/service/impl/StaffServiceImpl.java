@@ -4,6 +4,7 @@ import com.work.mapper.StaffMapper;
 import com.work.pojo.Staff;
 import com.work.service.StaffService;
 import com.work.utils.Log;
+import org.apache.shiro.authc.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,12 @@ public class StaffServiceImpl implements StaffService {
         if (staff != null) {
             return staff;
         }
+        return null;
+    }
+
+    @Override
+    public Account findByUserName(Staff userName) {
+
         return null;
     }
 

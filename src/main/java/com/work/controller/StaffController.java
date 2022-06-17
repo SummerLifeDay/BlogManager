@@ -4,6 +4,11 @@ import com.work.pojo.Staff;
 import com.work.service.impl.StaffServiceImpl;
 import com.work.utils.Log;
 import com.work.utils.Message;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -23,12 +28,23 @@ public class StaffController {
     @RequestMapping(value = "/loginIn", method = RequestMethod.POST)
     public String login(String userName,String password){
         Log.print(userName + " : " + password);
-        Staff staff = service.selectOneByName(userName);
-        if (staff != null && staff.getPassword().equals(password)){
-            return "success";
-        }
 
-        return "error";
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
+        try {
+            subject.login(token);
+            return "index";
+        }catch (UnknownAccountException e){
+            return "login";
+        }catch (IncorrectCredentialsException e){
+            return "login";
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping("/unauth")
+    public Object unauth(){
+        return new Message(-1, "没有访问权限");
     }
 
     @ResponseBody
