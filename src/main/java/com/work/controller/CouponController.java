@@ -6,8 +6,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,10 +26,9 @@ public class CouponController {
         return "admin/coupon";
     }
 
-    @ResponseBody
     @GetMapping("/admin/coupon/all")
-    public List<Coupon> selectAll(){
-        return service.selectAll();
+    public ModelAndView selectAll(){
+        return new ModelAndView("admin/coupon", "coupons", service.selectAll());
     }
 
     @PostMapping(value = "/admin/coupon/add")
