@@ -10,7 +10,7 @@ public interface StaffService {
 
     Staff selectOneByName(String userName);
 
-    Account findByUserName(Staff userName);
+    int findRoleByUserName(String userName);
 
     boolean add(Staff staff);
 

@@ -35,12 +35,27 @@ public class ShiroConfig {
         factoryBean.setSuccessUrl("/index");
         factoryBean.setUnauthorizedUrl("/unauth");
 
+        //设置shiro的拦截规则
+        //anon 匿名用户可访问   authc  认证用户可访问
+        //user 使用RemeberMe的用户可访问  perms  对应权限可访问
+        //role  对应的角色可访问
         Map<String, String> map = new LinkedHashMap<>();
         map.put("/logout", "logout");
         map.put("/loginIn", "anon");
-        map.put("/reg", "anon");
-        map.put("/**", "authc");
 
+        map.put("/reg", "role");
+        map.put("/admin/coupon/add", "roles[0]");
+        map.put("/admin/coupon/del", "roles[0]");
+        map.put("/admin/table/add", "roles[0]");
+        map.put("/admin/table/del", "roles[0]");
+        map.put("/admin/order/del", "roles[0]");
+        map.put("/admin/product/add", "roles[0]");
+        map.put("/admin/product/del", "roles[0]");
+        map.put("/admin/customer/del", "roles[0]");
+        map.put("/upload", "roles[0]");
+
+        //暂先注释,测试接口有无问题
+        //        map.put("/**", "authc");
         factoryBean.setFilterChainDefinitionMap(map);
 
         return factoryBean;

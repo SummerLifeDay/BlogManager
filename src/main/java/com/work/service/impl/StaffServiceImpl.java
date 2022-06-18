@@ -7,6 +7,7 @@ import com.work.utils.Log;
 import org.apache.shiro.authc.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -33,9 +34,13 @@ public class StaffServiceImpl implements StaffService {
     }
 
     @Override
-    public Account findByUserName(Staff userName) {
+    public int findRoleByUserName(String userName) {
+        Staff staff = selectOneByName(userName);
+        if (staff != null){
+            return staff.getRole();
+        }
 
-        return null;
+        return 1;
     }
 
     @Override

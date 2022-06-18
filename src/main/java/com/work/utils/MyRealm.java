@@ -4,9 +4,16 @@ import com.work.pojo.Staff;
 import com.work.service.StaffService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.Permission;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
+import org.apache.shiro.authz.permission.AllPermission;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.relational.core.sql.In;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class MyRealm extends AuthorizingRealm {
 
@@ -15,7 +22,15 @@ public class MyRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        return null;
+
+        String userName = (String) principalCollection.iterator().next();
+        int role = service.findRoleByUserName(userName);
+        Set<String> roles = new HashSet<>();
+        roles.add(roles.toString());
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
+
+        info.setRoles(roles);
+        return info;
     }
 
     @Override

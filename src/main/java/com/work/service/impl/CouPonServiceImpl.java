@@ -42,7 +42,7 @@ public class CouPonServiceImpl implements CouponService {
     }
 
     @Override
-    public boolean delete(String couponNum) {
+    public boolean delete(int couponNum) {
         try {
             mapper.deleteByPrimaryKey(couponNum);
             return true;
