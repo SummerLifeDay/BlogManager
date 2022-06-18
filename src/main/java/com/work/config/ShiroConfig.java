@@ -43,7 +43,7 @@ public class ShiroConfig {
         map.put("/logout", "logout");
         map.put("/loginIn", "anon");
 
-        map.put("/reg", "role");
+        map.put("/reg", "roles[0]");
         map.put("/admin/coupon/add", "roles[0]");
         map.put("/admin/coupon/del", "roles[0]");
         map.put("/admin/table/add", "roles[0]");

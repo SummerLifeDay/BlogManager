@@ -45,6 +45,7 @@ public class StaffController {
         return new Message(-1, "没有访问权限");
     }
 
+    @ResponseBody
     @RequestMapping(value = "/reg", method = RequestMethod.POST)
     public Object reg(String userName,String password, int role, String nickName){
 
