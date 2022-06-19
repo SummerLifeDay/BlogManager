@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -18,27 +19,35 @@ public class CusController {
 
     @GetMapping("/admin/customer")
     public String customer(){
-        return "admin/customer";
+        return "redirect:/admin/customer/all";
+    }
+
+    @GetMapping("/admin/customer/index")
+    public String toIndex(){
+        return "/admin/customer/index";
     }
 
     @ResponseBody
     @GetMapping("/admin/customer/all")
-    public List<Customer> selectAll(){
-        return service.selectAll();
+    public ModelAndView selectAll(){
+        return new ModelAndView(toIndex(), "customers", service.selectAll());
     }
 
     @PostMapping(value = "/admin/customer/add")
-    public boolean add(String userName, String telNum, String birthday){
-        return service.add(new Customer(null, userName, telNum, 0, birthday));
+    public ModelAndView add(String userName, String telNum, String birthday){
+        service.add(new Customer(null, userName, telNum, 0, birthday));
+        return selectAll();
     }
 
     @PostMapping(value = "/admin/customer/update")
-    public boolean update(int userId, String userName, String telNum,int integral, String birthday){
-        return service.edit(new Customer(userId, userName, telNum, integral, birthday));
+    public ModelAndView update(int userId, String userName, String telNum,int integral, String birthday){
+        service.edit(new Customer(userId, userName, telNum, integral, birthday));
+        return selectAll();
     }
 
     @PostMapping(value = "/admin/customer/del")
-    public boolean del(int userId){
-        return service.delete(userId);
+    public ModelAndView del(int userId){
+        service.delete(userId);
+        return selectAll();
     }
 }

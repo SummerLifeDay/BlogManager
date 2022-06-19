@@ -9,10 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -23,21 +19,28 @@ public class CouponController {
 
     @GetMapping("/admin/coupon")
     public String coupon(){
-        return "admin/coupon";
+        return "/admin/coupon/all";
+    }
+
+    @GetMapping("/admin/toCoupon")
+    public String toIndex(){
+        return "/admin/coupon/index";
     }
 
     @GetMapping("/admin/coupon/all")
     public ModelAndView selectAll(){
-        return new ModelAndView("admin/coupon", "coupons", service.selectAll());
+        return new ModelAndView(toIndex(), "coupons", service.selectAll());
     }
 
     @PostMapping(value = "/admin/coupon/add")
-    public boolean add(double discount, int count, String term){
-        return service.add(new Coupon(discount, UUID.randomUUID().toString(), term, count));
+    public ModelAndView add(double discount, int count, String term){
+        service.add(new Coupon(discount, UUID.randomUUID().toString(), term, count));
+        return selectAll();
     }
 
     @PostMapping(value = "/admin/coupon/del")
-    public boolean del(int dinerNum){
-        return service.delete(dinerNum);
+    public ModelAndView del(int dinerNum){
+        service.delete(dinerNum);
+        return selectAll();
     }
 }
