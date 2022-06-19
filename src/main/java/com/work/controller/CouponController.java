@@ -19,10 +19,10 @@ public class CouponController {
 
     @GetMapping("/admin/coupon")
     public String coupon(){
-        return "/admin/coupon/all";
+        return "redirect:/admin/coupon/all";
     }
 
-    @GetMapping("/admin/toCoupon")
+    @GetMapping("/admin/coupon/index")
     public String toIndex(){
         return "/admin/coupon/index";
     }
