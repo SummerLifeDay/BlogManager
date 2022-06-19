@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -20,32 +21,41 @@ public class TableController {
 
     @GetMapping("/admin/table")
     public String product(){
-        return "admin/table";
+        return "redirect:/admin/table/all";
+    }
+
+    @GetMapping("/admin/table/index")
+    public String toIndex(){
+        return "/admin/table/index";
     }
 
     @ResponseBody
     @GetMapping("/admin/table/all")
-    public List<Table> selectAll(){
-        return service.selectAll();
+    public ModelAndView selectAll(){
+        return new ModelAndView(toIndex(), "tables", selectAll());
     }
 
     @PostMapping(value = "/admin/table/add")
-    public int add(int isFree, int totalNum, int isBox){
-        return service.add(new Table(null, isFree, totalNum, isBox));
+    public ModelAndView add(int isFree, int totalNum, int isBox){
+        service.add(new Table(null, isFree, totalNum, isBox));
+        return selectAll();
     }
 
     @PostMapping(value = "/admin/table/update")
-    public int update(int dinerNum, int isFree, int totalNum, int isBox){
-        return service.edit(new Table(dinerNum, isFree, totalNum, isBox));
+    public ModelAndView update(int dinerNum, int isFree, int totalNum, int isBox){
+        service.edit(new Table(dinerNum, isFree, totalNum, isBox));
+        return selectAll();
     }
 
     @PostMapping(value = "/admin/table/updateState")
-    public int updateState(int dinerNum, int isFree){
-        return service.updateState(dinerNum, isFree);
+    public ModelAndView updateState(int dinerNum, int isFree){
+        service.updateState(dinerNum, isFree);
+        return selectAll();
     }
 
     @PostMapping(value = "/admin/table/del")
-    public int del(int dinerNum){
-        return service.delete(dinerNum);
+    public ModelAndView del(int dinerNum){
+        service.delete(dinerNum);
+        return selectAll();
     }
 }

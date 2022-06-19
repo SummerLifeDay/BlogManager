@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -19,27 +20,35 @@ public class OrderController {
 
     @GetMapping("/admin/order")
     public String product(){
-        return "admin/order";
+        return "redirect:/admin/order/all";
+    }
+
+    @GetMapping("/admin/order/index")
+    public String toIndex(){
+        return "/admin/customer/index";
     }
 
     @ResponseBody
     @GetMapping("/admin/order/all")
-    public List<Order> selectAll(){
-        return service.selectAll();
+    public ModelAndView selectAll(){
+        return new ModelAndView(toIndex(), "orders", service.selectAll());
     }
 
     @PostMapping(value = "/admin/order/add")
-    public boolean add(String customer, double price, int useCoupon, int useTable){
-        return service.add(new Order(UUID.randomUUID().toString(), customer, price, useCoupon, useTable));
+    public ModelAndView add(String customer, double price, int useCoupon, int useTable){
+        service.add(new Order(UUID.randomUUID().toString(), customer, price, useCoupon, useTable));
+        return selectAll();
     }
 
     @PostMapping(value = "/admin/order/update")
-    public boolean update(String orderNum, String customer, double price, int useCoupon, int useTable){
-        return service.edit(new Order(orderNum, customer, price, useCoupon, useTable));
+    public ModelAndView update(String orderNum, String customer, double price, int useCoupon, int useTable){
+        service.edit(new Order(orderNum, customer, price, useCoupon, useTable));
+        return selectAll();
     }
 
     @PostMapping(value = "/admin/order/del")
-    public boolean del(String orderNum){
-        return service.delete(orderNum);
+    public ModelAndView del(String orderNum){
+        service.delete(orderNum);
+        return selectAll();
     }
 }
