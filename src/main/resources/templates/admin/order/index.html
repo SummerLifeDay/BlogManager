@@ -41,12 +41,7 @@
 
 <div class="container mt-2 d-flex justify-content-start">
     <div class="jumbotron flex-grow-1">
-        <h4 class="text-center my-5" >订单</h4>
-        <div class="input-group mb-3">
-            <form class="inline-form" method="post" action="" style="margin-left: 25px">
-                <input type="submit" class="btn btn-warning" value="新增订单">
-            </form>
-        </div>
+        <h4 class="text-center my-5" >管理订单</h4>
         <div class="bg-gray">
             <table class="table">
                 <thead>
@@ -57,6 +52,11 @@
                     <th scope="col">定金金额</th>
                     <th scope="col">优惠卷（是否使用）</th>
                     <th scope="col">食用地点（食堂 or 外卖）</th>
+                    <th style="text-align: right">
+                        <form class="inline-form" method="post" action="">
+                            <input type="submit" class="btn btn-warning" value="新增订单">
+                        </form>
+                    </th>
                 </tr>
                 </thead>
 
@@ -71,12 +71,12 @@
                         <td>定金金额</td>
                         <td>优惠卷（是否使用）</td>
                         <td>食用地点（食堂 or 外卖）</td>
-                        <td>
+                        <td style="text-align: right">
                             <div class="btn-group" role="group" aria-label="Basic example">
                                 <form class="inline-form" method="post" action="" style="margin-right: 25px">
                                     <input type="submit" class="btn btn-danger" value="修改" >
                                 </form>
-                                <form class="inline-form" method="post" action="" style="margin-right: 25px">
+                                <form class="inline-form" method="post" action="">
                                     <input type="submit" class="btn btn-primary" value="取消订单/删除订单（老板限定）" onclick="return confirm('Are	you	sure?')">
                                 </form>
                             </div>
