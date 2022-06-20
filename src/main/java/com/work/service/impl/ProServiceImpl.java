@@ -51,4 +51,9 @@ public class ProServiceImpl implements ProductService {
         }
         return false;
     }
+
+    @Override
+    public int count() {
+        return selectAll().size();
+    }
 }

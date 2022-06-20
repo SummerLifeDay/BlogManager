@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" th:href="@{~/css/style.css}">
     <meta charset="UTF-8">
     <title>登录</title>
 
 </head>
 <body>
 <div class="container" id="container">
+
     <div class="form-container sign-in-container">
-        <form method="post">
+        <form method="post" action="/loginIn">
             <span>用户登入</span>
-            <input type="text" placeholder="用户名" name="username">
-            <input type="password" placeholder="密码" name="password">
+            <input type="text" placeholder="用户名" name="userName" >
+            <input type="password" placeholder="密码" name="password" >
             <button value="登入" name="login">登录</button>
+        </form>
     </div>
+
     <div class="overlay-container">
         <div class="overlay">
             <div class="overlay-panel overlay-right">
-                <h1>欢迎回来</h1>
-                <p>与我们保持联系请登录您的个人信息</p>
-                <button value="注册" name="register">注册</button>
+                <form action="/req" method="post">
+                    <h1>欢迎回来</h1>
+                    <p>与我们保持联系请登录您的个人信息</p>
+                </form>
                 </form>
             </div>
-
         </div>
     </div>
 

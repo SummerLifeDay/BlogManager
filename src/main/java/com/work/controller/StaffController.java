@@ -12,6 +12,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class StaffController {
@@ -26,16 +27,16 @@ public class StaffController {
 
     @ResponseBody
     @RequestMapping(value = "/loginIn", method = RequestMethod.POST)
-    public String login(String userName,String password){
+    public ModelAndView login(String userName, String password){
         Log.print(userName + " : " + password);
 
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
         try {
             subject.login(token);
-            return "index";
+            return new ModelAndView("index");
         }catch (UnknownAccountException | IncorrectCredentialsException e){
-            return "login";
+            return new ModelAndView("login");
         }
     }
 

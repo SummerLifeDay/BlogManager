@@ -13,4 +13,6 @@ public interface ProductService {
     boolean edit(Product product);
 
     boolean delete(int pId);
+
+    int count();
 }

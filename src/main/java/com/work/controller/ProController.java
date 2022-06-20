@@ -52,4 +52,9 @@ public class ProController {
         service.delete(pId);
         return selectAll();
     }
+
+    @GetMapping(value = "/admin/product/count")
+    public ModelAndView count( ){
+        return null;
+    }
 }
