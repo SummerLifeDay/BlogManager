@@ -22,7 +22,7 @@ public class CusServiceImpl implements CusService {
     @Override
     public boolean add(Customer customer) {
         try {
-            mapper.insert(customer);
+            mapper.insertSelective(customer);
             return true;
         }catch (Exception e){
             System.out.println(e);

@@ -21,7 +21,7 @@ public class Customer {
      * 生日
      * **/
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "JDBC")
     private Integer userId;
     private String userName;
     private String telNum;

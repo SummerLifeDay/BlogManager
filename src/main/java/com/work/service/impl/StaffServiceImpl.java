@@ -46,7 +46,7 @@ public class StaffServiceImpl implements StaffService {
     @Override
     public boolean add(Staff staff) {
         try {
-            mapper.insert(staff);
+            mapper.insertSelective(staff);
             return true;
         }catch (Exception e){
             System.out.println(e);
@@ -57,7 +57,7 @@ public class StaffServiceImpl implements StaffService {
     @Override
     public boolean edit(Staff staff) {
         try {
-            mapper.updateByPrimaryKey(staff);
+            mapper.updateByPrimaryKeySelective(staff);
             return true;
         }catch (Exception e){
             System.out.println(e);
