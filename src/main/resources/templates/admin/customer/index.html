@@ -55,7 +55,6 @@
         <h4 class="text-center my-5">客户</h4>
         <div class="bg-gray">
             <table class="table">
-
                 <thead>
                 <tr>
                     <th scope="col"></th>
@@ -68,73 +67,111 @@
                             <input type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" value="新增客户">
                         </form>
                     </th>
-
-                    <!-- 弹窗内容 -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">新增客户</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form method="post" action="/admin/customer/add">
-                                    <div class="input-group mb-3">
-                                        <button class="btn btn-outline-secondary" id="button-addon2" disabled>姓名</button>
-                                        <input name="userName" type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <button class="btn btn-outline-secondary" id="button-addon3" disabled>电话</button>
-                                        <input name="telNum" type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                    </div>
-                                    <!--日期-->
-                                    <div class="input-group mb-3">
-                                        <button class="btn btn-outline-secondary" id="button-addon5" disabled>选择日期</button>
-                                        <div class="layui-input-inline">
-                                            <input name="birthday" type="text" class="layui-input" id="test29" placeholder="yyyy-MM-dd">
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
-                                        <button class="btn btn-primary">确定</button>
-                                    </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </tr>
                 </thead>
-
 
                 <!-- 内容主体 -->
                 <tbody>
                 <tr th:each="user:${customers}">
                     <th scope="row"></th>
                     <td>
-                        <a href="" style="text-decoration: none" th:text="${user.userName}">客户姓名</a>
+                        <a href="" style="text-decoration: none" th:text="${user.userName}"></a>
                     </td>
-                    <td th:text="${user.telNum}">电话</td>
-                    <td th:text="${user.integral}">积分</td>
-                    <td th:text="${user.birthday}">生日</td>
+                    <td th:text="${user.telNum}"></td>
+                    <td th:text="${user.integral}"></td>
+                    <td th:text="${user.birthday}"></td>
                     <td style="text-align: right">
                         <div class="btn-group" role="group" aria-label="Basic example">
-                            <form class="inline-form" method="post" action="" style="margin-right: 25px">
-                                <input type="submit" class="btn btn-danger" value="修改" >
-                            </form>
-                            <form class="inline-form" method="post" action="">
-                                <input type="submit" class="btn btn-primary" value="删除（老板限定）" onclick="return confirm('Are	you	sure?')">
+                            <!--修改按钮-->
+                            <input type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#update" value="新增客户">
+                            <input type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#update" value="修改">
+                            <!--删除按钮-->
+                            <form class="inline-form" method="post" action="/admin/customer/del">
+                                <button type="submit" th:value="${user.userId}"
+                                        class="btn btn-primary" name="userId" onclick="return confirm('Are	you	sure?')">
+                                    删除（老板限定）
+                                </button>
                             </form>
                         </div>
                     </td>
                 </tr>
                 </tbody>
-
             </table>
         </div>
     </div>
-
 </div>
+
+
+<!-- 新增弹窗内容 -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">新增客户</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/admin/customer/add">
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary" id="button-addon2" disabled>姓名</button>
+                        <input name="userName" type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary" id="button-addon3" disabled>电话</button>
+                        <input name="telNum" type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    </div>
+                    <!--日期-->
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary" id="button-addon5" disabled>选择日期</button>
+                        <div class="layui-input-inline">
+                            <input name="birthday" type="text" class="layui-input" id="test29" placeholder="yyyy-MM-dd">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                        <button class="btn btn-primary">确定</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 修改弹窗内容 -->
+<div class="modal fade" id="update" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">修改客户</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/admin/customer/add">
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary" id="button-addon2" disabled>姓名</button>
+                        <input th:text="${user.userName}" name="userName" type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary" id="button-addon3" disabled>电话</button>
+                        <input th:text="${user.telNum}" name="telNum" type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    </div>
+                    <!--日期-->
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary" id="button-addon5" disabled>选择日期</button>
+                        <div class="layui-input-inline">
+                            <input th:text="${user.birthday}" name="birthday" type="text" class="layui-input" id="test29" placeholder="yyyy-MM-dd">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                        <button class="btn btn-primary">确定</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 </body>
 <script>

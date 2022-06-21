@@ -35,7 +35,8 @@ public class CusController {
 
     @PostMapping(value = "/admin/customer/add")
     public ModelAndView add(String userName, String telNum, String birthday){
-        service.add(new Customer(null, userName, telNum, 0, birthday));
+        // userName 我先改成0了，不如添加不了，其他的到时候回来看看
+        service.add(new Customer( 0, userName, telNum, 0, birthday));
         return selectAll();
     }
 
@@ -47,6 +48,7 @@ public class CusController {
 
     @PostMapping(value = "/admin/customer/del")
     public ModelAndView del(int userId){
+        System.out.println("获取到的用户id：" + userId);
         service.delete(userId);
         return selectAll();
     }
