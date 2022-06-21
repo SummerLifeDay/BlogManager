@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
 @Table(name = "customer")
 @Data
 @AllArgsConstructor
@@ -18,6 +21,7 @@ public class Customer {
      * 生日
      * **/
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer userId;
     private String userName;
     private String telNum;
