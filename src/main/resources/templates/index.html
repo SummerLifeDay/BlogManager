@@ -1,74 +1,293 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> 餐饮后台管理系统</title>
-    <link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+<meta name="author" content="yinq">
+<title>首页 - 餐厅管理系统</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.min.css">
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link" href=" ">首页</a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
-               aria-expanded="false">餐饮后台管理系统</a>
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="/admin/customer">客户管理</a></li>
-                <li><a class="dropdown-item" href="">菜品管理</a></li>
-                <li><a class="dropdown-item" href="">订单管理</a></li>
-                <li><a class="dropdown-item" href="">餐桌管理</a></li>
-                <li><a class="dropdown-item" href="">优惠卷管理</a></li>
-                <li><a class="dropdown-item" href="">工作人员管理</a></li>
-            </ul>
-        </li>
-    </ul>
-    <ul class="nav justify-content-end">
-        <li class="nav-item">
-            <a class="nav-link" href=" ">老板 or 员工</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href=" ">登出</a>
-        </li>
-    </ul>
-</nav>
-
-<div class="container mt-2">
-    <div class="row">
-        <div class="col-12">
-            <div class="jumbotron">
-                <h4 class="text-center my-5">系统概要</h4>
-                <h3 class="text-center mb-4">现有菜品:xxx种菜品</h3>
-                <div class="row justify-content-center">
-                    <div class="col-auto">
-                        <p><a class="btn btn-success btn-lg" href="" role="button">添加新菜</a> </p>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                        <div class="article me-5" style="margin: 0 auto;text-align: center">
-                            <h5>最近新菜</h5>
-                        </div>
-                        <div class="article me-7" style="margin: 0 auto;text-align: center">
-                            <h5>热门畅享</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--页面loading-->
+<div id="lyear-preloader" class="loading">
+  <div class="ctn-preloader">
+    <div class="round_spinner">
+      <div class="spinner"></div>
+      <b>加载中...</b>
     </div>
+  </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-        crossorigin="anonymous"></script>
-<script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>
+<!--页面loading end-->
+<div class="lyear-layout-web">
+  <div class="lyear-layout-container">
+    <!--左侧导航-->
+    <aside class="lyear-layout-sidebar">
+      
+      <!-- logo -->
+      <div id="logo" class="sidebar-header">
+        <a href="index.html"><img src="images/logo-sidebar.jpg" title="Canting" alt="Canting" /></a>
+      </div>
+      <div class="lyear-layout-sidebar-info lyear-scroll"> 
+        
+        <nav class="sidebar-main">
+          <ul class="nav-drawer">
+            <li class="nav-item active"> <a href="index.html"><i class="mdi mdi-home"></i> <span>后台首页</span></a> </li>
+            <li class="nav-item"><a href="order.html"><i class="mdi mdi-room-service"></i> 点菜中心</a></li>
+            <li class="nav-item"><a href="product.html"><i class="mdi mdi-food"></i>菜品管理</a></li>
+            <li class="nav-item"><a href="manage.html"><i class="mdi mdi-clipboard"></i> 订单管理</a></li>
+            <li class="nav-item"><a href="customer.html"><i class="mdi mdi-account"></i> 会员管理</a></li>
+          </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+          <p class="copyright">Copyright &copy; 2022. <a target="_blank" href="index.html">神奇小餐厅</a> All rights reserved.</p>
+        </div>
+      </div>
+      
+    </aside>
+    <!--End 左侧导航-->
+    
+    <!--头部信息-->
+    <header class="lyear-layout-header">
+      
+      <nav class="navbar">
+      
+        <div class="navbar-left">
+          <div class="lyear-aside-toggler">
+            <span class="lyear-toggler-bar"></span>
+            <span class="lyear-toggler-bar"></span>
+            <span class="lyear-toggler-bar"></span>
+          </div>
+        </div>
+        
+        <ul class="navbar-right d-flex align-items-center">
+         
+          <!--切换主题配色-->
+		  <li class="dropdown dropdown-skin">
+		    <span data-toggle="dropdown" class="icon-item"><i class="mdi mdi-palette"></i></span>
+			<ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
+              <li class="drop-title"><p>主题</p></li>
+              <li class="drop-skin-li clearfix">
+                <span class="inverse">
+                  <input type="radio" name="site_theme" value="default" id="site_theme_1" checked>
+                  <label for="site_theme_1"></label>
+                </span>
+                <span>
+                  <input type="radio" name="site_theme" value="dark" id="site_theme_2">
+                  <label for="site_theme_2"></label>
+                </span>
+                <span>
+                  <input type="radio" name="site_theme" value="translucent" id="site_theme_3">
+                  <label for="site_theme_3"></label>
+                </span>
+              </li>
+			  <li class="drop-title"><p>LOGO</p></li>
+			  <li class="drop-skin-li clearfix">
+                <span class="inverse">
+                  <input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
+                  <label for="logo_bg_1"></label>
+                </span>
+                <span>
+                  <input type="radio" name="logo_bg" value="color_2" id="logo_bg_2">
+                  <label for="logo_bg_2"></label>
+                </span>
+                <span>
+                  <input type="radio" name="logo_bg" value="color_3" id="logo_bg_3">
+                  <label for="logo_bg_3"></label>
+                </span>
+                <span>
+                  <input type="radio" name="logo_bg" value="color_4" id="logo_bg_4">
+                  <label for="logo_bg_4"></label>
+                </span>
+                <span>
+                  <input type="radio" name="logo_bg" value="color_5" id="logo_bg_5">
+                  <label for="logo_bg_5"></label>
+                </span>
+                <span>
+                  <input type="radio" name="logo_bg" value="color_6" id="logo_bg_6">
+                  <label for="logo_bg_6"></label>
+                </span>
+                <span>
+                  <input type="radio" name="logo_bg" value="color_7" id="logo_bg_7">
+                  <label for="logo_bg_7"></label>
+                </span>
+                <span>
+                  <input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
+                  <label for="logo_bg_8"></label>
+                </span>
+			  </li>
+			  <li class="drop-title"><p>头部</p></li>
+			  <li class="drop-skin-li clearfix">
+                <span class="inverse">
+                  <input type="radio" name="header_bg" value="default" id="header_bg_1" checked>
+                  <label for="header_bg_1"></label>                      
+                </span>                                                    
+                <span>                                                     
+                  <input type="radio" name="header_bg" value="color_2" id="header_bg_2">
+                  <label for="header_bg_2"></label>                      
+                </span>                                                    
+                <span>                                                     
+                  <input type="radio" name="header_bg" value="color_3" id="header_bg_3">
+                  <label for="header_bg_3"></label>
+                </span>
+                <span>
+                  <input type="radio" name="header_bg" value="color_4" id="header_bg_4">
+                  <label for="header_bg_4"></label>                      
+                </span>                                                    
+                <span>                                                     
+                  <input type="radio" name="header_bg" value="color_5" id="header_bg_5">
+                  <label for="header_bg_5"></label>                      
+                </span>                                                    
+                <span>                                                     
+                  <input type="radio" name="header_bg" value="color_6" id="header_bg_6">
+                  <label for="header_bg_6"></label>                      
+                </span>                                                    
+                <span>                                                     
+                  <input type="radio" name="header_bg" value="color_7" id="header_bg_7">
+                  <label for="header_bg_7"></label>
+                </span>
+                <span>
+                  <input type="radio" name="header_bg" value="color_8" id="header_bg_8">
+                  <label for="header_bg_8"></label>
+                </span>
+				</li>
+			  <li class="drop-title"><p>侧边栏</p></li>
+			  <li class="drop-skin-li clearfix">
+                <span class="inverse">
+                  <input type="radio" name="sidebar_bg" value="default" id="sidebar_bg_1" checked>
+                  <label for="sidebar_bg_1"></label>
+                </span>
+                <span>
+                  <input type="radio" name="sidebar_bg" value="color_2" id="sidebar_bg_2">
+                  <label for="sidebar_bg_2"></label>
+                </span>
+                <span>
+                  <input type="radio" name="sidebar_bg" value="color_3" id="sidebar_bg_3">
+                  <label for="sidebar_bg_3"></label>
+                </span>
+                <span>
+                  <input type="radio" name="sidebar_bg" value="color_4" id="sidebar_bg_4">
+                  <label for="sidebar_bg_4"></label>
+                </span>
+                <span>
+                  <input type="radio" name="sidebar_bg" value="color_5" id="sidebar_bg_5">
+                  <label for="sidebar_bg_5"></label>
+                </span>
+                <span>
+                  <input type="radio" name="sidebar_bg" value="color_6" id="sidebar_bg_6">
+                  <label for="sidebar_bg_6"></label>
+                </span>
+                <span>
+                  <input type="radio" name="sidebar_bg" value="color_7" id="sidebar_bg_7">
+                  <label for="sidebar_bg_7"></label>
+                </span>
+                <span>
+                  <input type="radio" name="sidebar_bg" value="color_8" id="sidebar_bg_8">
+                  <label for="sidebar_bg_8"></label>
+                </span>
+			  </li>
+		    </ul>
+		  </li>
+          <!--切换主题配色end-->
+          <li class="dropdown dropdown-profile">
+            <a href="javascript:void(0)" data-toggle="dropdown" class="dropdown-toggle">
+              <img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg" alt="柴林" />
+              <span>管理员</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              
+              <li>
+                <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li>
+                <a class="dropdown-item" href="login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        
+      </nav>
+      
+    </header>
+    <!--End 头部信息-->
+    
+    <!--页面主要内容-->
+    <main class="lyear-layout-content">
+      
+      <div class="container-fluid p-t-15">
+  
+        <div class="row">
+          <div class="col-md-6 col-xl-3">
+            <div class="card bg-primary text-white">
+              <div class="card-body clearfix">
+                <div class="flex-box">
+                  <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-currency-cny fs-22"></i></span>
+                  <span class="fs-22 lh-22">102,125.00</span>
+                </div>
+                <div class="text-right">营业额</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-xl-3">
+            <div class="card bg-danger text-white">
+              <div class="card-body clearfix">
+                <div class="flex-box">
+                  <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-account fs-22"></i></span>
+                  <span class="fs-22 lh-22">920,000</span>
+                </div>
+                <div class="text-right">客户总数</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-xl-3">
+            <div class="card bg-success text-white">
+              <div class="card-body clearfix">
+                <div class="flex-box">
+                  <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi mdi-food fs-22"></i></span>
+                  <span class="fs-22 lh-22">34,005,000</span>
+                </div>
+                <div class="text-right">菜品总数</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-6 col-xl-3">
+            <div class="card bg-purple text-white">
+              <div class="card-body clearfix">
+                <div class="flex-box">
+                  <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-clipboard fs-22"></i></span>
+                  <span class="fs-22 lh-22">153</span>
+                </div>
+                <div class="text-right">订单总数</div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </main>
+    <!--End 页面主要内容-->
+  </div>
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="js/main.min.js"></script>
+<script type="text/javascript" src="js/Chart.min.js"></script>
+
+</script>
 </body>
 </html>
