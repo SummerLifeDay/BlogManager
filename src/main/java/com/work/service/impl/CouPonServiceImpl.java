@@ -20,35 +20,17 @@ public class CouPonServiceImpl implements CouponService {
     }
 
     @Override
-    public boolean add(Coupon coupon) {
-        try {
-            mapper.insert(coupon);
-            return true;
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        return false;
+    public int add(Coupon coupon) {
+        return mapper.insertSelective(coupon);
     }
 
     @Override
-    public boolean edit(Coupon coupon) {
-        try {
-            mapper.updateByPrimaryKey(coupon);
-            return true;
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        return false;
+    public int edit(Coupon coupon) {
+        return mapper.insertSelective(coupon);
     }
 
     @Override
-    public boolean delete(int couponNum) {
-        try {
-            mapper.deleteByPrimaryKey(couponNum);
-            return true;
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        return false;
+    public int delete(int couponNum) {
+        return mapper.deleteByPrimaryKey(couponNum);
     }
 }

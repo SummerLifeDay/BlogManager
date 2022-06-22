@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.relational.core.mapping.Table;
 
+import javax.persistence.Id;
+
 @Table(name = "staff")
 @Data
 @AllArgsConstructor
@@ -17,6 +19,7 @@ public class Staff {
      * 角色
      * 昵称
      * */
+    @Id
     private Integer staffId;
     private String userName;
     private String password;

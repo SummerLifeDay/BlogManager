@@ -8,9 +8,9 @@ public interface CusService {
 
     List<Customer> selectAll();
 
-    boolean add(Customer customer);
+    int add(Customer customer);
 
-    boolean edit(Customer customer);
+    int edit(Customer customer);
 
-    boolean delete(int userId);
+    int delete(int userId);
 }

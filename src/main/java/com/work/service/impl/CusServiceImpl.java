@@ -5,6 +5,7 @@ import com.work.pojo.Customer;
 import com.work.service.CusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -20,36 +21,18 @@ public class CusServiceImpl implements CusService {
     }
 
     @Override
-    public boolean add(Customer customer) {
-        try {
-            mapper.insertSelective(customer);
-            return true;
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        return false;
+    public int add(Customer customer) {
+        return mapper.insertSelective(customer);
     }
 
     @Override
-    public boolean edit(Customer customer) {
-        try {
-            mapper.updateByPrimaryKey(customer);
-            return true;
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        return false;
+    public int edit(Customer customer) {
+        return mapper.updateByPrimaryKeySelective(customer);
     }
 
     @Override
-    public boolean delete(int userId) {
-        try {
-            mapper.deleteByPrimaryKey(userId);
-            return true;
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        return false;
+    public int delete(int userId) {
+        return mapper.deleteByPrimaryKey(userId);
     }
 
 

@@ -3,7 +3,7 @@ package com.work.pojo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 import javax.persistence.GeneratedValue;
@@ -20,8 +20,8 @@ public class Customer {
      * 积分
      * 生日
      * **/
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
-    @GeneratedValue(generator = "JDBC")
     private Integer userId;
     private String userName;
     private String telNum;

@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Id;
+
 @org.springframework.data.relational.core.mapping.Table(name = "table")
 @Data
 @AllArgsConstructor
@@ -16,6 +18,7 @@ public class Table {
      * 餐桌容纳人数
      * 是否包厢
      * */
+    @Id
     private Integer dinerNum;
     private Integer isFree;
     private Integer totalNum;

@@ -8,9 +8,9 @@ public interface CouponService {
 
     List<Coupon> selectAll();
 
-    boolean add(Coupon coupon);
+    int add(Coupon coupon);
 
-    boolean edit(Coupon coupon);
+    int edit(Coupon coupon);
 
-    boolean delete(int couponNum);
+    int delete(int couponNum);
 }
