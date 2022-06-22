@@ -26,7 +26,7 @@ public class CouPonServiceImpl implements CouponService {
 
     @Override
     public int edit(Coupon coupon) {
-        return mapper.insertSelective(coupon);
+        return mapper.updateByPrimaryKeySelective(coupon);
     }
 
     @Override

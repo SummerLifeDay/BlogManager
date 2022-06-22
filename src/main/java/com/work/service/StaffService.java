@@ -1,7 +1,6 @@
 package com.work.service;
 
 import com.work.pojo.Staff;
-import org.apache.shiro.authc.Account;
 
 import java.util.List;
 
@@ -12,9 +11,9 @@ public interface StaffService {
 
     int findRoleByUserName(String userName);
 
-    boolean add(Staff staff);
+    int add(Staff staff);
 
-    boolean edit(Staff staff);
+    int edit(Staff staff);
 
-    boolean delete(String staffId);
+    int delete(String staffId);
 }

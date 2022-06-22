@@ -31,12 +31,12 @@ public class TableServiceImpl implements TableService {
 
     @Override
     public int add(Table table) {
-        return mapper.insert(table);
+        return mapper.insertSelective(table);
     }
 
     @Override
     public int edit(Table table) {
-        return mapper.updateByPrimaryKey(table);
+        return mapper.updateByPrimaryKeySelective(table);
     }
 
     @Override

@@ -8,11 +8,11 @@ public interface ProductService {
 
     List<Product> selectAll();
 
-    boolean add(Product product);
+    int add(Product product);
 
-    boolean edit(Product product);
+    int edit(Product product);
 
-    boolean delete(int pId);
+    int delete(int pId);
 
     int count();
 }

@@ -20,36 +20,18 @@ public class ProServiceImpl implements ProductService {
     }
 
     @Override
-    public boolean add(Product product) {
-        try {
-            mapper.insert(product);
-            return true;
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        return false;
+    public int add(Product product) {
+        return mapper.insertSelective(product);
     }
 
     @Override
-    public boolean edit(Product product) {
-        try {
-            mapper.updateByPrimaryKey(product);
-            return true;
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        return false;
+    public int edit(Product product) {
+        return mapper.updateByPrimaryKeySelective(product);
     }
 
     @Override
-    public boolean delete(int pId) {
-        try {
-            mapper.deleteByPrimaryKey(pId);
-            return true;
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        return false;
+    public int delete(int pId) {
+        return mapper.deleteByPrimaryKey(pId);
     }
 
     @Override

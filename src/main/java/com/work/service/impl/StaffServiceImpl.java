@@ -3,11 +3,8 @@ package com.work.service.impl;
 import com.work.mapper.StaffMapper;
 import com.work.pojo.Staff;
 import com.work.service.StaffService;
-import com.work.utils.Log;
-import org.apache.shiro.authc.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -44,35 +41,17 @@ public class StaffServiceImpl implements StaffService {
     }
 
     @Override
-    public boolean add(Staff staff) {
-        try {
-            mapper.insertSelective(staff);
-            return true;
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        return false;
+    public int add(Staff staff) {
+        return mapper.insertSelective(staff);
     }
 
     @Override
-    public boolean edit(Staff staff) {
-        try {
-            mapper.updateByPrimaryKeySelective(staff);
-            return true;
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        return false;
+    public int edit(Staff staff) {
+        return mapper.updateByPrimaryKeySelective(staff);
     }
 
     @Override
-    public boolean delete(String staffId) {
-        try {
-            mapper.deleteByPrimaryKey(staffId);
-            return true;
-        }catch (Exception e){
-            System.out.println(e);
-        }
-        return false;
+    public int delete(String staffId) {
+        return mapper.deleteByPrimaryKey(staffId);
     }
 }
