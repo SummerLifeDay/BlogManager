@@ -25,6 +25,6 @@ public class Customer {
     private Integer userId;
     private String userName;
     private String telNum;
-    private double integral;
+    private Double integral;
     private String birthday;
 }

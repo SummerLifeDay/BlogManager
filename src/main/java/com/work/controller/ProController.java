@@ -26,7 +26,7 @@ public class ProController {
 
     @GetMapping("/admin/product/index")
     public String toIndex(){
-        return "/admin/coupon/index";
+        return "/admin/product/index";
     }
 
     @ResponseBody

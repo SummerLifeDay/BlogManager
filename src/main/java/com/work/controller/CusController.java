@@ -35,12 +35,12 @@ public class CusController {
 
     @PostMapping(value = "/admin/customer/add")
     public ModelAndView add(String userName, String telNum, String birthday){
-        service.add(new Customer( null, userName, telNum, 0, birthday));
+        service.add(new Customer( null, userName, telNum, 0.0, birthday));
         return selectAll();
     }
 
     @PostMapping(value = "/admin/customer/update")
-    public ModelAndView update(int userId, String userName, String telNum,int integral, String birthday){
+    public ModelAndView update(int userId, String userName, String telNum,Double integral, String birthday){
         service.edit(new Customer(userId, userName, telNum, integral, birthday));
         return selectAll();
     }

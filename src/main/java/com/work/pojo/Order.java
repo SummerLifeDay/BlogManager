@@ -22,8 +22,8 @@ public class Order {
     @Id
     private String orderNum;
     private String customer;
-    private double price;
-    private int useCoupon;
-    private int useTable;
+    private Double price;
+    private Integer useCoupon;
+    private Integer useTable;
 
 }

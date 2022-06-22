@@ -20,7 +20,7 @@ public class Coupon {
      * 发放一次优惠券数量
      * */
     @Id
-    private double discount;
+    private Double discount;
     private String couponNum;
     private String term;
     private Integer count;

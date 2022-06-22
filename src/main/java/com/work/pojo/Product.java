@@ -22,5 +22,5 @@ public class Product {
     private String pName;
     private Integer reserve;
     private String imgUrl;
-    private double price;
+    private Double price;
 }
