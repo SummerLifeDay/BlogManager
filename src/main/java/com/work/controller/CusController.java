@@ -35,8 +35,7 @@ public class CusController {
 
     @PostMapping(value = "/admin/customer/add")
     public ModelAndView add(String userName, String telNum, String birthday){
-        // userName ���ȸĳ�0�ˣ�������Ӳ��ˣ������ĵ�ʱ���������
-        service.add(new Customer( 0, userName, telNum, 0, birthday));
+        service.add(new Customer( null, userName, telNum, 0, birthday));
         return selectAll();
     }
 
@@ -48,7 +47,6 @@ public class CusController {
 
     @PostMapping(value = "/admin/customer/del")
     public ModelAndView del(int userId){
-        System.out.println("id :" + userId);
         service.delete(userId);
         return selectAll();
     }
