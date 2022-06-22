@@ -54,7 +54,7 @@ public class StaffController {
             return new Message(-1, "用户已存在");
         }
 
-        if (service.add(new Staff(null, userName, password, role, nickName))){
+        if (service.add(new Staff(null, userName, password, role, nickName)) == 1){
             return "success";
         }
 
