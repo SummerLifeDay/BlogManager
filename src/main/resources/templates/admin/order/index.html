@@ -237,7 +237,7 @@
                                     <div class="text-right" th:text="${'剩余：'+pro.reserve}" name="reserve"></div>
                                     <div class="text-right" th:text="${'价格：'+pro.price}" name="price"></div>
                                     <div class="text-right" style="margin-top: 22px">
-                                        <input type="number" placeholder="选择点单数量" name="shuliang">
+                                        <input type="number" placeholder="选择点单数量" class="shuliang">
                                     </div>
                                 </form>
                             </div>
@@ -261,20 +261,7 @@
         <!--End 页面主要内容-->
     </div>
 </div>
-<script>
-    var getAll = document.forms['getAll']
-    shuliang = getAll.elements['shuliang']
 
-    shuliang.oninput=function (){
-        console.log(shuliang.value)
-    }
-
-    function add() {
-        var money = 0;
-        document.getElementById('jg').innerHTML = money;
-        console.log(document.getElementById('one').innerHTML)
-    }
-</script>
 
 <script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
@@ -283,7 +270,24 @@
 <script type="text/javascript" th:src="@{/js/jquery.cookie.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/main.min.js}"></script>
 <script type="text/javascript" th:src="@{/js/Chart.min.js}"></script>
+<script>
+    // var getAll = document.forms['getAll']
+    // shuliang = getAll.elements['.shuliang']
+    //
+    // shuliang.oninput=function (){
+    //     console.log(shuliang.value)
+    // }
+$(".shuliang").change(function (){
+    console.log($(this).val())
 
+})
+    function add() {
+        var money = 0;
+        document.getElementById('jg').innerHTML = money;
+        console.log(document.getElementById('one').innerHTML)
+    }
 </script>
+
+
 </body>
 </html>
