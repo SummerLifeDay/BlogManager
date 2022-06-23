@@ -34,17 +34,17 @@
       
       <!-- logo -->
       <div id="logo" class="sidebar-header">
-        <a href="index.html"><img src="images/logo-sidebar.jpg" title="Canting" alt="Canting" /></a>
+        <a th:href="@{/amdin/index}"><img th:src="@{/images/logo-sidebar.jpg}" title="Canting" alt="Canting" /></a>
       </div>
       <div class="lyear-layout-sidebar-info lyear-scroll"> 
         
         <nav class="sidebar-main">
           <ul class="nav-drawer">
-            <li class="nav-item active"> <a href="index.html"><i class="mdi mdi-home"></i> <span>后台首页</span></a> </li>
-            <li class="nav-item"><a href="order.html"><i class="mdi mdi-room-service"></i> 点菜中心</a></li>
-            <li class="nav-item"><a href="product.html"><i class="mdi mdi-food"></i>菜品管理</a></li>
-            <li class="nav-item"><a href="manage.html"><i class="mdi mdi-clipboard"></i> 订单管理</a></li>
-            <li class="nav-item"><a href="customer.html"><i class="mdi mdi-account"></i> 会员管理</a></li>
+            <li class="nav-item active"> <a th:href="@{/admin/index.html}"><i class="mdi mdi-home"></i> <span>后台首页</span></a> </li>
+            <li class="nav-item"><a href="/admin/order"><i class="mdi mdi-room-service"></i> 点菜中心</a></li>
+            <li class="nav-item"><a href="/admin/product/index"><i class="mdi mdi-food"></i>菜品管理</a></li>
+            <li class="nav-item"><a href="/admin/manage/index"><i class="mdi mdi-clipboard"></i> 订单管理</a></li>
+            <li class="nav-item"><a href="/admin/customer/index"><i class="mdi mdi-account"></i> 会员管理</a></li>
           </ul>
         </nav>
         
@@ -200,7 +200,7 @@
           <!--切换主题配色end-->
           <li class="dropdown dropdown-profile">
             <a href="javascript:void(0)" data-toggle="dropdown" class="dropdown-toggle">
-              <img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg" alt="柴林" />
+              <img class="img-avatar img-avatar-48 m-r-10" th:src="@{/images/users/avatar.jpg}" alt="柴林" />
               <span>管理员</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
@@ -210,7 +210,7 @@
               </li>
               <li class="dropdown-divider"></li>
               <li>
-                <a class="dropdown-item" href="login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a>
+                <a class="dropdown-item" href=/login><i class="mdi mdi-logout-variant"></i> 退出登录</a>
               </li>
             </ul>
           </li>

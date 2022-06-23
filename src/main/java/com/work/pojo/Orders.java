@@ -5,13 +5,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.relational.core.mapping.Table;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Table(name = "order")
+@Table(name = "orders")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Order {
+public class Orders {
     /**
      * 订单号
      * 下单客户
@@ -20,6 +22,7 @@ public class Order {
      * 是否使用餐桌
      * **/
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private String orderNum;
     private String customer;
     private Double price;

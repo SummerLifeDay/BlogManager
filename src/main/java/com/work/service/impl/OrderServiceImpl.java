@@ -1,7 +1,7 @@
 package com.work.service.impl;
 
 import com.work.mapper.OrderMapper;
-import com.work.pojo.Order;
+import com.work.pojo.Orders;
 import com.work.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,18 +15,18 @@ public class OrderServiceImpl implements OrderService {
     private OrderMapper mapper;
 
     @Override
-    public List<Order> selectAll() {
+    public List<Orders> selectAll() {
         return mapper.selectAll();
     }
 
     @Override
-    public int add(Order order) {
-        return mapper.insertSelective(order);
+    public int add(Orders orders) {
+        return mapper.insertSelective(orders);
     }
 
     @Override
-    public int edit(Order order) {
-        return mapper.updateByPrimaryKeySelective(order);
+    public int edit(Orders orders) {
+        return mapper.updateByPrimaryKeySelective(orders);
     }
 
     @Override

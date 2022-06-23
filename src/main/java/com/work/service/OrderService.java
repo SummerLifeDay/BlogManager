@@ -1,16 +1,16 @@
 package com.work.service;
 
-import com.work.pojo.Order;
+import com.work.pojo.Orders;
 
 import java.util.List;
 
 public interface OrderService {
 
-    List<Order> selectAll();
+    List<Orders> selectAll();
 
-    int add(Order order);
+    int add(Orders orders);
 
-    int edit(Order order);
+    int edit(Orders orders);
 
     int delete(String orderNum);
 

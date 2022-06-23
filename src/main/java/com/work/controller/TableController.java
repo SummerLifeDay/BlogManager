@@ -1,6 +1,5 @@
 package com.work.controller;
 
-import com.work.pojo.Order;
 import com.work.pojo.Table;
 import com.work.service.impl.TableServiceImpl;
 import org.springframework.stereotype.Controller;
@@ -10,8 +9,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.util.List;
-import java.util.UUID;
 
 @Controller
 public class TableController {
