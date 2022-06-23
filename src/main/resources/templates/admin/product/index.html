@@ -267,14 +267,16 @@
                                                         <label for="inputPName"
                                                                class="col-sm-2 col-form-label">菜名：</label>
                                                         <div class="col-sm-10">
-                                                            <input type="text" class="form-control" id="inputPName" name="pName">
+                                                            <input type="text" class="form-control" id="inputPName"
+                                                                   name="pName">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label for="inputPirce"
                                                                class="col-sm-2 col-form-label">价格：</label>
                                                         <div class="col-sm-10">
-                                                            <input type="number" class="form-control" id="inputPirce" name="price">
+                                                            <input type="number" class="form-control" id="inputPirce"
+                                                                   name="price">
                                                         </div>
                                                     </div>
 
@@ -282,7 +284,8 @@
                                                         <label for="inputPrserve"
                                                                class="col-sm-2 col-form-label">库存：</label>
                                                         <div class="col-sm-10">
-                                                            <input type="number" class="form-control" id="inputPrserve" name="reserve">
+                                                            <input type="number" class="form-control" id="inputPrserve"
+                                                                   name="reserve">
                                                         </div>
                                                     </div>
 
@@ -291,7 +294,8 @@
                                                         <label for="inputPrserve"
                                                                class="col-sm-4 col-form-label">图片地址：</label>
                                                         <div class="col-sm-9">
-                                                            <input type="text" class="form-control" id="inputImgUrl" name="imgUrl">
+                                                            <input type="text" class="form-control" id="inputImgUrl"
+                                                                   name="imgUrl">
                                                         </div>
                                                     </div>
 
@@ -319,12 +323,12 @@
                                 <!-- 内层div -->
                                 <div class="table-responsive">
                                     <!-- 表格 -->
-                                    <table class="table table-bordered" id="ProductList" style="text-align: center">
+                                    <table class="table table-bordered table-hover" id="ProductList" style="text-align: center">
                                         <!-- 表头 -->
                                         <thead>
                                         <tr class="table-hover">
                                             <th style="text-align: center">序号</th>
-                                            <th style="text-align: center; width: 100px">图片</th>
+                                            <th style="text-align: center; width: 250px">图片</th>
                                             <th style="text-align: center">菜品名</th>
                                             <th style="text-align: center">价格</th>
                                             <th style="text-align: center">库存</th>
@@ -332,12 +336,12 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            <!--  表格开始-->
+                                        <!--  表格开始-->
                                         <tr th:each="item:${products}">
                                             <!-- ID -->
                                             <td th:text="${item.pId}"></td>
                                             <!-- 图片 -->
-                                            <td ><img th:src="${item.imgUrl}" width="230px" height="180px"></td>
+                                            <td><img th:src="${item.imgUrl}" width="230px" height="180px"></td>
                                             <!-- 菜品名 -->
                                             <td th:text="${item.pName}"></td>
                                             <!-- 价格 -->
@@ -352,7 +356,7 @@
                                                        data-whatever="@mdo">
                                                         <i class="mdi mdi-pencil"></i>
                                                     </a>
-                                                    <a class="btn btn-md btn-danger" title="删除" onclick=""
+                                                    <a class="btn btn-md btn-danger del" title="删除" th:id="${item.pId}"
                                                        data-toggle="tooltip">
                                                         <i class="mdi mdi-window-close"></i>
                                                     </a>
@@ -362,18 +366,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <!-- 分页组件开始（未实现） -->
-                                <h4 class="pull-right">共xx条数据，共xx页，当前xx页</h4>
-                                <ul class="pagination" style="margin-top: -10px">
-                                    <li><a href="/或许写个后端?pageNum=1">首页</a></li>
-                                    <li><a onclick="" style="cursor: pointer">上一页</a></li>
-                                    <li><a href="/或许写个后端?pageNum=${pageNum}">（当前第几页）</a></li>
-                                    <li>
-                                        <a onclick="" style="cursor: pointer">下一页</a>
-                                        <a href="/或许写个后端?pageNum=${sumPageNum}">末页</a>
-                                    </li>
-                                </ul>
-                                <!-- 分页组件结束 -->
+
                                 <!-- 表格结束 -->
                             </div>
                         </div>
@@ -397,53 +390,31 @@
     // 新增成功提示
     function addTip() {
         alert("添加成功！")
-    }
+    };
 
     // 删除
-    function sendDelProId(id,page) {
-        $.alert({
-            title: '',
-            content:'<h4>是否确认删除该菜品！！！！</h4>',
-            buttons: {
-                confirm: {
-                    text: '确认',
-                    btnClass: 'btn-primary',
-                    action: function () {
-                        $.ajax({
-                            type: "POST",
-                            url: "/admin/product/del",
-                            data: {
-                                "": id,
-                            },
-                            success: function (msg) {
-                                $.alert({
-                                    title: '',
-                                    content: '<h4>删除成功！</h4>',
-                                    buttons: {
-                                        confirm: {
-                                            text: '关闭',
-                                            btnClass: 'btn-primary',
-                                            action: function () {
-                                                window.location.href = ''
-                                            }
-                                        },
-                                    }
-                                });
-                            }
-                        });
-                    }
+    $(".del").click(
+        function () {
+            console.log($(this).attr("id"))
+            var flag = confirm("确定要删除吗？");
+            if (flag) {
+                $.ajax({
+                    url: "/admin/product/del",
+                    type: "POST",
+                    data: {pId: $(this).attr("id")},
+                    success: function (data) {
+                        alert("删除成功");
+                        location.reload();
+                    },
+                    error: function (data) {
+                        alert("删除失败");
+                    },
+                })
 
-                },
-                cancel: {
-                    text: '取消',
-                    action: function () {
-                        $.alert('你点击了取消!');
-                    }
-                }
             }
-        });
-        //执行更新
-    }
+        }
+    )
+
 
 </script>
 </body>

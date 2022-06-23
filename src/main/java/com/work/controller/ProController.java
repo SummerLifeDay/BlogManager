@@ -49,6 +49,7 @@ public class ProController {
 
     @PostMapping(value = "/admin/product/del")
     public ModelAndView del(int pId){
+        System.out.println(pId);
         service.delete(pId);
         return selectAll();
     }
