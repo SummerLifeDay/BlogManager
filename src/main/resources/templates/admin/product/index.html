@@ -322,9 +322,9 @@
                                     <table class="table table-bordered" id="ProductList" style="text-align: center">
                                         <!-- 表头 -->
                                         <thead>
-                                        <tr>
+                                        <tr class="table-hover">
                                             <th style="text-align: center">序号</th>
-                                            <th style="text-align: center">图片</th>
+                                            <th style="text-align: center; width: 100px">图片</th>
                                             <th style="text-align: center">菜品名</th>
                                             <th style="text-align: center">价格</th>
                                             <th style="text-align: center">库存</th>
@@ -337,7 +337,7 @@
                                             <!-- ID -->
                                             <td th:text="${item.pId}"></td>
                                             <!-- 图片 -->
-                                            <td><img th:src="${item.imgUrl}" width="230px" height="180px"></td>
+                                            <td ><img th:src="${item.imgUrl}" width="230px" height="180px"></td>
                                             <!-- 菜品名 -->
                                             <td th:text="${item.pName}"></td>
                                             <!-- 价格 -->
