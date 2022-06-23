@@ -1,434 +1,449 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-<meta name="author" content="yinq">
-<title>菜品管理 - 餐厅管理系统</title>
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-touch-fullscreen" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/animate.min.css">
-<link rel="stylesheet" type="text/css" href="css/style.min.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="author" content="yinq">
+    <title>菜品管理 - 餐厅管理系统</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/materialdesignicons.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/animate.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.min.css}">
 </head>
 
 <body>
 <!--页面loading-->
 <div id="lyear-preloader" class="loading">
-  <div class="ctn-preloader">
-    <div class="round_spinner">
-      <div class="spinner"></div>
-      <b>加载中...</b>
+    <div class="ctn-preloader">
+        <div class="round_spinner">
+            <div class="spinner"></div>
+            <b>加载中...</b>
+        </div>
     </div>
-  </div>
 </div>
 <!--页面loading end-->
 <div class="lyear-layout-web">
-  <div class="lyear-layout-container">
-    <!--左侧导航-->
-    <aside class="lyear-layout-sidebar">
-      
-      <!-- logo -->
-      <div id="logo" class="sidebar-header">
-        <a href="index.html"><img src="images/logo-sidebar.jpg" title="Canting" alt="Canting" /></a>
-      </div>
-      <div class="lyear-layout-sidebar-info lyear-scroll"> 
-        
-        <nav class="sidebar-main">
-          <ul class="nav-drawer">
-            <li class="nav-item"> <a href="index.html"><i class="mdi mdi-home"></i> <span>后台首页</span></a> </li>
-            <li class="nav-item"><a href="orders.html"><i class="mdi mdi-room-service"></i> 点菜中心</a></li>
-            <li class="nav-item active"><a href="index.html"><i class="mdi mdi-food"></i>菜品管理</a></li>
-            <li class="nav-item"><a href="manage.html"><i class="mdi mdi-clipboard"></i> 订单管理</a></li>
-            <li class="nav-item"><a href="customer.html"><i class="mdi mdi-account"></i> 会员管理</a></li>
-          </ul>
-        </nav>
-        
-        <div class="sidebar-footer">
-          <p class="copyright">Copyright &copy; 2022. <a target="_blank" href="index.html">神奇小餐厅</a> All rights reserved.</p>
-        </div>
-      </div>
-      
-    </aside>
-    <!--End 左侧导航-->
-    
-    <!--头部信息-->
-    <header class="lyear-layout-header">
-      
-      <nav class="navbar">
-      
-        <div class="navbar-left">
-          <div class="lyear-aside-toggler">
-            <span class="lyear-toggler-bar"></span>
-            <span class="lyear-toggler-bar"></span>
-            <span class="lyear-toggler-bar"></span>
-          </div>
-        </div>
-        
-        <ul class="navbar-right d-flex align-items-center">
-         
-          <!--切换主题配色-->
-		  <li class="dropdown dropdown-skin">
-		    <span data-toggle="dropdown" class="icon-item"><i class="mdi mdi-palette"></i></span>
-			<ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
-              <li class="drop-title"><p>主题</p></li>
-              <li class="drop-skin-li clearfix">
+    <div class="lyear-layout-container">
+        <!--左侧导航-->
+        <aside class="lyear-layout-sidebar">
+
+            <!-- logo -->
+            <div id="logo" class="sidebar-header">
+                <a href="index.html"><img th:src="@{/images/logo-sidebar.jpg}" title="Canting" alt="Canting"/></a>
+            </div>
+            <div class="lyear-layout-sidebar-info lyear-scroll">
+                <nav class="sidebar-main">
+                    <ul class="nav-drawer">
+                        <li class="nav-item"><a href="index.html"><i class="mdi mdi-home"></i> <span>后台首页</span></a>
+                        </li>
+                        <li class="nav-item"><a href="order.html"><i class="mdi mdi-room-service"></i><span>点菜中心</span></a>
+                        </li>
+                        <li class="nav-item active"><a href="index.html"><i
+                                class="mdi mdi-food"></i><span>菜品管理</span></a>
+                        </li>
+                        <li class="nav-item"><a href="manage.html"><i
+                                class="mdi mdi-clipboard"></i><span>订单管理</span></a></li>
+                        <li class="nav-item"><a href="customer.html"><i
+                                class="mdi mdi-account"></i><span>会员管理</span></a></li>
+                    </ul>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <p class="copyright">Copyright &copy; 2022. <a target="_blank" href="index.html">神奇小餐厅</a> All
+                        rights reserved.</p>
+                </div>
+            </div>
+
+        </aside>
+        <!--End 左侧导航-->
+
+        <!--头部信息-->
+        <header class="lyear-layout-header">
+
+            <nav class="navbar">
+
+                <div class="navbar-left">
+                    <div class="lyear-aside-toggler">
+                        <span class="lyear-toggler-bar"></span>
+                        <span class="lyear-toggler-bar"></span>
+                        <span class="lyear-toggler-bar"></span>
+                    </div>
+                </div>
+
+                <ul class="navbar-right d-flex align-items-center">
+
+                    <!--切换主题配色-->
+                    <li class="dropdown dropdown-skin">
+                        <span data-toggle="dropdown" class="icon-item"><i class="mdi mdi-palette"></i></span>
+                        <ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
+                            <li class="drop-title"><p>主题</p></li>
+                            <li class="drop-skin-li clearfix">
                 <span class="inverse">
                   <input type="radio" name="site_theme" value="default" id="site_theme_1" checked>
                   <label for="site_theme_1"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="site_theme" value="dark" id="site_theme_2">
                   <label for="site_theme_2"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="site_theme" value="translucent" id="site_theme_3">
                   <label for="site_theme_3"></label>
                 </span>
-              </li>
-			  <li class="drop-title"><p>LOGO</p></li>
-			  <li class="drop-skin-li clearfix">
+                            </li>
+                            <li class="drop-title"><p>LOGO</p></li>
+                            <li class="drop-skin-li clearfix">
                 <span class="inverse">
                   <input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
                   <label for="logo_bg_1"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="logo_bg" value="color_2" id="logo_bg_2">
                   <label for="logo_bg_2"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="logo_bg" value="color_3" id="logo_bg_3">
                   <label for="logo_bg_3"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="logo_bg" value="color_4" id="logo_bg_4">
                   <label for="logo_bg_4"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="logo_bg" value="color_5" id="logo_bg_5">
                   <label for="logo_bg_5"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="logo_bg" value="color_6" id="logo_bg_6">
                   <label for="logo_bg_6"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="logo_bg" value="color_7" id="logo_bg_7">
                   <label for="logo_bg_7"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
                   <label for="logo_bg_8"></label>
                 </span>
-			  </li>
-			  <li class="drop-title"><p>头部</p></li>
-			  <li class="drop-skin-li clearfix">
+                            </li>
+                            <li class="drop-title"><p>头部</p></li>
+                            <li class="drop-skin-li clearfix">
                 <span class="inverse">
                   <input type="radio" name="header_bg" value="default" id="header_bg_1" checked>
                   <label for="header_bg_1"></label>                      
-                </span>                                                    
-                <span>                                                     
+                </span>
+                                <span>
                   <input type="radio" name="header_bg" value="color_2" id="header_bg_2">
                   <label for="header_bg_2"></label>                      
-                </span>                                                    
-                <span>                                                     
+                </span>
+                                <span>
                   <input type="radio" name="header_bg" value="color_3" id="header_bg_3">
                   <label for="header_bg_3"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="header_bg" value="color_4" id="header_bg_4">
                   <label for="header_bg_4"></label>                      
-                </span>                                                    
-                <span>                                                     
+                </span>
+                                <span>
                   <input type="radio" name="header_bg" value="color_5" id="header_bg_5">
                   <label for="header_bg_5"></label>                      
-                </span>                                                    
-                <span>                                                     
+                </span>
+                                <span>
                   <input type="radio" name="header_bg" value="color_6" id="header_bg_6">
                   <label for="header_bg_6"></label>                      
-                </span>                                                    
-                <span>                                                     
+                </span>
+                                <span>
                   <input type="radio" name="header_bg" value="color_7" id="header_bg_7">
                   <label for="header_bg_7"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="header_bg" value="color_8" id="header_bg_8">
                   <label for="header_bg_8"></label>
                 </span>
-				</li>
-			  <li class="drop-title"><p>侧边栏</p></li>
-			  <li class="drop-skin-li clearfix">
+                            </li>
+                            <li class="drop-title"><p>侧边栏</p></li>
+                            <li class="drop-skin-li clearfix">
                 <span class="inverse">
                   <input type="radio" name="sidebar_bg" value="default" id="sidebar_bg_1" checked>
                   <label for="sidebar_bg_1"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="sidebar_bg" value="color_2" id="sidebar_bg_2">
                   <label for="sidebar_bg_2"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="sidebar_bg" value="color_3" id="sidebar_bg_3">
                   <label for="sidebar_bg_3"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="sidebar_bg" value="color_4" id="sidebar_bg_4">
                   <label for="sidebar_bg_4"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="sidebar_bg" value="color_5" id="sidebar_bg_5">
                   <label for="sidebar_bg_5"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="sidebar_bg" value="color_6" id="sidebar_bg_6">
                   <label for="sidebar_bg_6"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="sidebar_bg" value="color_7" id="sidebar_bg_7">
                   <label for="sidebar_bg_7"></label>
                 </span>
-                <span>
+                                <span>
                   <input type="radio" name="sidebar_bg" value="color_8" id="sidebar_bg_8">
                   <label for="sidebar_bg_8"></label>
                 </span>
-			  </li>
-		    </ul>
-		  </li>
-          <!--切换主题配色end-->
-          <li class="dropdown dropdown-profile">
-            <a href="javascript:void(0)" data-toggle="dropdown" class="dropdown-toggle">
-              <img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg" alt="柴林" />
-              <span>管理员</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-right">
-              
-              <li>
-                <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a>
-              </li>
-              <li class="dropdown-divider"></li>
-              <li>
-                <a class="dropdown-item" href="login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        
-      </nav>
-      
-    </header>
-    <!--End 头部信息-->
-    
-    <!--页面主要内容-->
-    <!-- 页面主要内容开始 -->
-    <main class="lyear-layout-content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
+                            </li>
+                        </ul>
+                    </li>
+                    <!--切换主题配色end-->
 
-                        <!-- 顶部开始 -->
-                        <div class="card-toolbar clearfix">
-                            <!-- 新增宿舍按钮 -->
-                            <div class="pull-right toolbar-btn-action">
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#add_dorm" data-whatever="@mdo"><i
-                                        class="mdi mdi-plus"></i>新增菜品
-                                </button>
-                            </div>
+                    <li class="dropdown dropdown-profile">
+                        <a href="javascript:void(0)" data-toggle="dropdown" class="dropdown-toggle">
+                            <img class="img-avatar img-avatar-48 m-r-10" th:src="@{/images/users/avatar.jpg}" alt="柴林"/>
+                            <span>管理员</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
 
+                            <li>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-delete"></i>
+                                    清空缓存</a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="login.html"><i class="mdi mdi-logout-variant"></i>
+                                    退出登录</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
 
+            </nav>
 
+        </header>
+        <!--End 头部信息-->
 
+        <!--页面主要内容-->
+        <!-- 页面主要内容开始 -->
+        <main class="lyear-layout-content">
+            <div class="container-fluid p-t-15">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
 
-                            <!-- 新增弹窗 -->
-                            <div class="modal fade" id="add_dorm" tabindex="-1" role="dialog"
-                                 aria-labelledby="exampleModalLabel">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close"><span
-                                                    aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="exampleModalLabel">新增宿舍</h4>
+                            <!-- 顶部开始 -->
+                            <div class="card-toolbar clearfix">
+                                <!-- 新增菜品按钮 -->
+                                <div class="pull-right toolbar-btn-action">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#add_product" data-whatever="@mdo"><i
+                                            class="mdi mdi-plus"></i>新增菜品
+                                    </button>
+                                </div>
+
+                                <!-- 新增菜品弹窗 -->
+                                <div class="modal fade" id="add_product" tabindex="-1" role="dialog"
+                                     aria-labelledby="add_product" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="">添加菜品</h6>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <!-- 新增菜品表单 -->
+                                                <form action="/admin/product/add" method="post">
+                                                    <div class="form-group row">
+                                                        <label for="inputPName"
+                                                               class="col-sm-2 col-form-label">菜名：</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" class="form-control" id="inputPName" name="pName">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="inputPirce"
+                                                               class="col-sm-2 col-form-label">价格：</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="number" class="form-control" id="inputPirce" name="price">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <label for="inputPrserve"
+                                                               class="col-sm-2 col-form-label">库存：</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="number" class="form-control" id="inputPrserve" name="reserve">
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- 图片 -->
+                                                    <div class="form-group row">
+                                                        <label for="inputPrserve"
+                                                               class="col-sm-4 col-form-label">图片地址：</label>
+                                                        <div class="col-sm-9">
+                                                            <input type="text" class="form-control" id="inputImgUrl" name="imgUrl">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">取消
+                                                        </button>
+                                                        <button type="submit" class="btn btn-primary"
+                                                                onclick="addTip()">添加
+                                                        </button>
+                                                    </div>
+                                                </form>
+
+                                            </div>
                                         </div>
-                                        <div class="modal-body">
-                                            <!-- 新增宿舍表单开始  -->
-                                            <form class="form-horizontal" action="/DormAddServlet" method="get"
-                                                  onsubmit="return true;">
-
-
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label"
-                                                           for="aadW_building">楼栋：</label>
-                                                    <div class="col-md-7">
-                                                        <select class="form-control" id="aadW_building"
-                                                                name="aadW_building" size="1">
-                                                            <option value="">请选择楼栋</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label"
-                                                           for="example-hf-aadW_flow">楼层：</label>
-                                                    <div class="col-md-7">
-                                                        <select class="form-control" id="aadW_flow"
-                                                                name="aadW_flow" size="1">
-                                                            <option value="0">请选择楼层</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label"
-                                                           for="example-hf-aadW_room">宿舍号：</label>
-                                                    <div class="col-md-7">
-                                                        <select class="form-control" id="aadW_room"
-                                                                name="aadW_room" size="1">
-                                                            <option value="">请选择宿舍号</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label"
-                                                           for="aadW_college">所属学院：</label>
-                                                    <div class="col-md-7">
-                                                        <select class="form-control" id="aadW_college"
-                                                                name="aadW_college" size="1">
-                                                            <option value="">请选择所属学院</option>
-                                                            <option value="人工智能学院">人工智能学院</option>
-                                                            <option value="智能制造学院">智能制造学院</option>
-                                                            <option value="商学院">商学院</option>
-                                                            <option value="传媒学院">传媒学院</option>
-                                                            <option value="健康与旅游学院">健康与旅游学院</option>
-                                                            <option value="国际学院">国际学院</option>
-                                                            <option value="财经学院">财经学院</option>
-                                                            <option value="艺术设计学院">艺术设计学院</option>
-                                                            <option value="建筑工程学院">建筑工程学院</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="col-md-3 control-label"
-                                                           for="example-hf-aadW_class">所属班级：</label>
-                                                    <div class="col-md-7">
-                                                        <input class="form-control" type="text"
-                                                               id="example-hf-aadW_class" name="aadW_class"
-                                                               placeholder="请输入所属班级..">
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default"
-                                                            data-dismiss="modal">取消
-                                                    </button>
-                                                    <button type="submit" class="btn btn-primary" onclick="addTip()">添加</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <!-- <%-- <div class="modal-footer">--%>
-                                        <%--     <button type="button" class="btn btn-default"--%>
-                                        <%--             data-dismiss="modal">关闭--%>
-                                        <%--     </button>--%>
-                                        <%--     <button type="submit" class="btn btn-primary">添加</button>--%>
-                                        <%-- </div>--%>
-                                        <%-- 表单外提交--%> -->
-
-                                        <!-- 新增宿舍表单结束 -->
                                     </div>
                                 </div>
+                                <!-- 新增菜品弹窗结束 -->
+
+
                             </div>
-
-                        </div>
-                        <!-- 顶部结束 -->
-
-                        <!-- 表格开始 -->
-                        <div class="card-body">
-                            <!-- 内层div -->
-                            <div class="table-responsive">
-                                <!-- 表格 -->
-                                <table class="table table-bordered" id="dormList" style="text-align: center">
-                                    <!-- 表头 -->
-                                    <thead>
-                                    <tr>
-
-                                        <th style="text-align: center">序号</th>
-                                        <th style="text-align: center">图片</th>
-                                        <th style="text-align: center">菜品名</th>
-                                        <th style="text-align: center">价格</th>
-                                        <th style="text-align: center">库存</th>
-                                        <th style="text-align: center">操作</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <c:forEach items="${arrInfoDorm}" var="dorm" varStatus="index">
+                            <!-- 顶部结束 -->
+                            <!-- 表格开始 -->
+                            <div class="card-body">
+                                <!-- 内层div -->
+                                <div class="table-responsive">
+                                    <!-- 表格 -->
+                                    <table class="table table-bordered" id="ProductList" style="text-align: center">
+                                        <!-- 表头 -->
+                                        <thead>
                                         <tr>
-                                            <!-- 选择框 -->
-
-                                            <!-- # -->
-                                            <td width="60px">${index.count}</td>
-                                            <!-- 宿舍唯一标识id -->
-                                            <td>${dorm.getW_id()}</td>
-                                            <!-- 楼栋 -->
-                                            <td>${dorm.getW_building()}</td>
-                                            <!-- 宿舍号 -->
-                                            <td>${dorm.getW_room()}</td>
-                                            <!-- 所属学院 -->
-                                            <td>${dorm.getW_college()}</td>
+                                            <th style="text-align: center">序号</th>
+                                            <th style="text-align: center">图片</th>
+                                            <th style="text-align: center">菜品名</th>
+                                            <th style="text-align: center">价格</th>
+                                            <th style="text-align: center">库存</th>
+                                            <th style="text-align: center">操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!--  表格开始-->
+                                        <tr th:each="item:${products}">
+                                            <!-- ID -->
+                                            <td th:text="${item.pId}"></td>
+                                            <!-- 图片 -->
+                                            <td><img th:src="${item.imgUrl}" width="230px" height="180px"></td>
+                                            <!-- 菜品名 -->
+                                            <td th:text="${item.pName}"></td>
+                                            <!-- 价格 -->
+                                            <td th:text="${item.price}"></td>
+                                            <!-- 库存 -->
+                                            <td th:text="${item.reserve}"></td>
                                             <!-- 操作 -->
                                             <td>
                                                 <div class="btn-group">
-                                                    <a class="btn btn-md btn-info" title="编辑"onclick="setEditDormId('${dorm.getW_id()}','${dorm.getW_building()}','${dorm.getW_room()}','${dorm.getW_college()}','${dorm.getW_class()}')" data-toggle="modal" data-target="#edit_dorm" data-whatever="@mdo"><i class="mdi mdi-pencil"></i></a>
-                                                    <a class="btn btn-md btn-danger" title="删除"
-                                                       onclick="sendDelDormId('${dorm.getW_id()}',${pageNum})"
-                                                       data-toggle="tooltip"><i
-                                                        class="mdi mdi-window-close"></i></a>
+                                                    <a class="btn btn-md btn-info" title="编辑" onclick=""
+                                                       data-toggle="modal" data-target="#editProduct"
+                                                       data-whatever="@mdo">
+                                                        <i class="mdi mdi-pencil"></i>
+                                                    </a>
+                                                    <a class="btn btn-md btn-danger" title="删除" onclick=""
+                                                       data-toggle="tooltip">
+                                                        <i class="mdi mdi-window-close"></i>
+                                                    </a>
                                                 </div>
                                             </td>
                                         </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- 分页组件开始（未实现） -->
+                                <h4 class="pull-right">共xx条数据，共xx页，当前xx页</h4>
+                                <ul class="pagination" style="margin-top: -10px">
+                                    <li><a href="/或许写个后端?pageNum=1">首页</a></li>
+                                    <li><a onclick="" style="cursor: pointer">上一页</a></li>
+                                    <li><a href="/或许写个后端?pageNum=${pageNum}">（当前第几页）</a></li>
+                                    <li>
+                                        <a onclick="" style="cursor: pointer">下一页</a>
+                                        <a href="/或许写个后端?pageNum=${sumPageNum}">末页</a>
+                                    </li>
+                                </ul>
+                                <!-- 分页组件结束 -->
+                                <!-- 表格结束 -->
                             </div>
-
-                            <!-- 分页组件开始 -->
-
-                            <h4 class="pull-right">共${arrDorm.size()}条数据，共${sumPageNum}页，当前${pageNum}页</h4>
-
-                            <ul class="pagination" style="margin-top: -10px">
-                                <li><a href="/DormListServlet?pageNum=1">首页</a></li>
-                                <li><a onclick="superior(${sumPageNum},${pageNum})" style="cursor: pointer">上一页</a></li>
-                                <li><a href="/DormListServlet?pageNum=${pageNum}">${pageNum}</a></li>
-                                <li>
-                                    <a onclick="down(${sumPageNum},${pageNum})" style="cursor: pointer">下一页</a>
-                                    <a href="/DormListServlet?pageNum=${sumPageNum}">末页</a>
-                                </li>
-                            </ul>
-                            <!-- 分页组件结束 -->
-                            <!-- 表格结束 -->
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
-    <!--End 页面主要内容-->
-  </div>
+        </main>
+        <!--End 页面主要内容-->
+    </div>
 </div>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/popper.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.min.js"></script>
-<script type="text/javascript" src="js/main.min.js"></script>
-<script type="text/javascript" src="js/Chart.min.js"></script>
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/perfect-scrollbar.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.cookie.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/main.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/Chart.min.js}"></script>
+
+<script>
+    // 新增成功提示
+    function addTip() {
+        alert("添加成功！")
+    }
+
+    // 删除
+    function sendDelProId(id,page) {
+        $.alert({
+            title: '',
+            content:'<h4>是否确认删除该菜品！！！！</h4>',
+            buttons: {
+                confirm: {
+                    text: '确认',
+                    btnClass: 'btn-primary',
+                    action: function () {
+                        $.ajax({
+                            type: "POST",
+                            url: "/admin/product/del",
+                            data: {
+                                "": id,
+                            },
+                            success: function (msg) {
+                                $.alert({
+                                    title: '',
+                                    content: '<h4>删除成功！</h4>',
+                                    buttons: {
+                                        confirm: {
+                                            text: '关闭',
+                                            btnClass: 'btn-primary',
+                                            action: function () {
+                                                window.location.href = ''
+                                            }
+                                        },
+                                    }
+                                });
+                            }
+                        });
+                    }
+
+                },
+                cancel: {
+                    text: '取消',
+                    action: function () {
+                        $.alert('你点击了取消!');
+                    }
+                }
+            }
+        });
+        //执行更新
+    }
 
 </script>
 </body>
