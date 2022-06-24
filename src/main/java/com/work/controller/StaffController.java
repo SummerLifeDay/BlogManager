@@ -41,11 +41,10 @@ public class StaffController {
             return new ModelAndView("login");
         }
     }
-
-    @ResponseBody
+    
     @RequestMapping("/unauth")
-    public Object unauth(){
-        return new Message(-1, "没有访问权限");
+    public ModelAndView unauth(){
+        return new ModelAndView("/unauth");
     }
 
     @ResponseBody
