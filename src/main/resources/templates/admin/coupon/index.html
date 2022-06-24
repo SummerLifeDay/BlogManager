@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="author" content="yinq">
+    <title>优惠券管理 - 餐厅管理系统</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/materialdesignicons.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/animate.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/js/bootstrap-clockpicker/bootstrap-clockpicker.min.css}">
+</head>
+
+<body>
+<!--页面loading-->
+<div id="lyear-preloader" class="loading">
+    <div class="ctn-preloader">
+        <div class="round_spinner">
+            <div class="spinner"></div>
+            <b>加载中...</b>
+        </div>
+    </div>
+</div>
+<!--页面loading end-->
+<div class="lyear-layout-web">
+    <div class="lyear-layout-container">
+        <!--左侧导航-->
+        <aside class="lyear-layout-sidebar">
+
+            <!-- logo -->
+            <div id="logo" class="sidebar-header">
+                <a href="index.html"><img th:src="@{/images/logo-sidebar.jpg}" title="Canting" alt="Canting"/></a>
+            </div>
+            <div class="lyear-layout-sidebar-info lyear-scroll">
+                <nav class="sidebar-main">
+                    <ul class="nav-drawer">
+                        <li class="nav-item"><a href="index.html"><i class="mdi mdi-home"></i> <span>后台首页</span></a>
+                        </li>
+                        <li class="nav-item"><a href="order.html"><i class="mdi mdi-room-service"></i><span>点菜中心</span></a>
+                        </li>
+                        <li class="nav-item active"><a href="index.html"><i
+                                class="mdi mdi-food"></i><span>菜品管理</span></a>
+                        </li>
+                        <li class="nav-item"><a href="manage.html"><i
+                                class="mdi mdi-clipboard"></i><span>订单管理</span></a></li>
+                        <li class="nav-item"><a href="customer.html"><i
+                                class="mdi mdi-account"></i><span>会员管理</span></a></li>
+                    </ul>
+                </nav>
+
+                <div class="sidebar-footer">
+                    <p class="copyright">Copyright &copy; 2022. <a target="_blank" href="index.html">神奇小餐厅</a> All
+                        rights reserved.</p>
+                </div>
+            </div>
+
+        </aside>
+        <!--End 左侧导航-->
+
+        <!--头部信息-->
+        <header class="lyear-layout-header">
+
+            <nav class="navbar">
+
+                <div class="navbar-left">
+                    <div class="lyear-aside-toggler">
+                        <span class="lyear-toggler-bar"></span>
+                        <span class="lyear-toggler-bar"></span>
+                        <span class="lyear-toggler-bar"></span>
+                    </div>
+                </div>
+
+                <ul class="navbar-right d-flex align-items-center">
+
+                    <!--切换主题配色-->
+                    <li class="dropdown dropdown-skin">
+                        <span data-toggle="dropdown" class="icon-item"><i class="mdi mdi-palette"></i></span>
+                        <ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
+                            <li class="drop-title"><p>主题</p></li>
+                            <li class="drop-skin-li clearfix">
+                <span class="inverse">
+                  <input type="radio" name="site_theme" value="default" id="site_theme_1" checked>
+                  <label for="site_theme_1"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="site_theme" value="dark" id="site_theme_2">
+                  <label for="site_theme_2"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="site_theme" value="translucent" id="site_theme_3">
+                  <label for="site_theme_3"></label>
+                </span>
+                            </li>
+                            <li class="drop-title"><p>LOGO</p></li>
+                            <li class="drop-skin-li clearfix">
+                <span class="inverse">
+                  <input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
+                  <label for="logo_bg_1"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="logo_bg" value="color_2" id="logo_bg_2">
+                  <label for="logo_bg_2"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="logo_bg" value="color_3" id="logo_bg_3">
+                  <label for="logo_bg_3"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="logo_bg" value="color_4" id="logo_bg_4">
+                  <label for="logo_bg_4"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="logo_bg" value="color_5" id="logo_bg_5">
+                  <label for="logo_bg_5"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="logo_bg" value="color_6" id="logo_bg_6">
+                  <label for="logo_bg_6"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="logo_bg" value="color_7" id="logo_bg_7">
+                  <label for="logo_bg_7"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
+                  <label for="logo_bg_8"></label>
+                </span>
+                            </li>
+                            <li class="drop-title"><p>头部</p></li>
+                            <li class="drop-skin-li clearfix">
+                <span class="inverse">
+                  <input type="radio" name="header_bg" value="default" id="header_bg_1" checked>
+                  <label for="header_bg_1"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="header_bg" value="color_2" id="header_bg_2">
+                  <label for="header_bg_2"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="header_bg" value="color_3" id="header_bg_3">
+                  <label for="header_bg_3"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="header_bg" value="color_4" id="header_bg_4">
+                  <label for="header_bg_4"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="header_bg" value="color_5" id="header_bg_5">
+                  <label for="header_bg_5"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="header_bg" value="color_6" id="header_bg_6">
+                  <label for="header_bg_6"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="header_bg" value="color_7" id="header_bg_7">
+                  <label for="header_bg_7"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="header_bg" value="color_8" id="header_bg_8">
+                  <label for="header_bg_8"></label>
+                </span>
+                            </li>
+                            <li class="drop-title"><p>侧边栏</p></li>
+                            <li class="drop-skin-li clearfix">
+                <span class="inverse">
+                  <input type="radio" name="sidebar_bg" value="default" id="sidebar_bg_1" checked>
+                  <label for="sidebar_bg_1"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="sidebar_bg" value="color_2" id="sidebar_bg_2">
+                  <label for="sidebar_bg_2"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="sidebar_bg" value="color_3" id="sidebar_bg_3">
+                  <label for="sidebar_bg_3"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="sidebar_bg" value="color_4" id="sidebar_bg_4">
+                  <label for="sidebar_bg_4"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="sidebar_bg" value="color_5" id="sidebar_bg_5">
+                  <label for="sidebar_bg_5"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="sidebar_bg" value="color_6" id="sidebar_bg_6">
+                  <label for="sidebar_bg_6"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="sidebar_bg" value="color_7" id="sidebar_bg_7">
+                  <label for="sidebar_bg_7"></label>
+                </span>
+                                <span>
+                  <input type="radio" name="sidebar_bg" value="color_8" id="sidebar_bg_8">
+                  <label for="sidebar_bg_8"></label>
+                </span>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--切换主题配色end-->
+
+                    <li class="dropdown dropdown-profile">
+                        <a href="javascript:void(0)" data-toggle="dropdown" class="dropdown-toggle">
+                            <img class="img-avatar img-avatar-48 m-r-10" th:src="@{/images/users/avatar.jpg}" alt="柴林"/>
+                            <span>管理员</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-right">
+
+                            <li>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-delete"></i>
+                                    清空缓存</a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="login.html"><i class="mdi mdi-logout-variant"></i>
+                                    退出登录</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </nav>
+
+        </header>
+        <!--End 头部信息-->
+
+        <!--页面主要内容-->
+        <!-- 页面主要内容开始 -->
+        <main class="lyear-layout-content">
+            <div class="container-fluid p-t-15">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+
+                            <!-- 顶部开始 -->
+                            <div class="card-toolbar clearfix">
+                                <!-- 新增优惠券按钮 -->
+                                <div class="pull-right toolbar-btn-action">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#add_coupon" data-whatever="@mdo"><i
+                                            class="mdi mdi-plus"></i>新增优惠券
+                                    </button>
+                                </div>
+
+                                <!-- 新增优惠券弹窗 -->
+                                <div class="modal fade" id="add_coupon" tabindex="-1" role="dialog"
+                                     aria-labelledby="add_coupon" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h6 class="modal-title" id="">添加优惠券</h6>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <!-- 新增菜品表单 -->
+                                                <form action="/admin/coupon/add" method="post">
+                                                    <div class="form-group row">
+                                                        <label for="inputDiscount"
+                                                               class="col-sm-2 col-form-label">折扣</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="number" class="form-control" id="inputDiscount"
+                                                                   name="discount">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="inputCount"
+                                                               class="col-sm-2 col-form-label">数量</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="number" class="form-control" id="inputCount"
+                                                                   name="count">
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row">
+                                                        <label for="inputPrserve"
+                                                               class="col-sm-2 col-form-label">库存</label>
+                                                        <div class="col-sm-10">
+                                                            <input class="form-control" type="text" data-provide="datetimepicker" name="term" placeholder="请选择具体时间" value="" data-side-by-side="true" data-format="YYYY-MM-DD HH:mm">
+                                                        </div>
+
+
+                                                    </div>
+
+
+
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">取消
+                                                        </button>
+                                                        <button type="submit" class="btn btn-primary"
+                                                                onclick="addTip()">添加
+                                                        </button>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 新增优惠券弹窗结束 -->
+
+
+                            </div>
+                            <!-- 顶部结束 -->
+                            <!-- 表格开始 -->
+                            <div class="card-body">
+                                <!-- 内层div -->
+                                <div class="table-responsive">
+                                    <!-- 表格 -->
+                                    <table class="table table-bordered table-hover" id="ProductList" style="text-align: center">
+                                        <!-- 表头 -->
+                                        <thead>
+                                        <tr class="table-hover">
+                                            <th style="text-align: center">优惠券编号</th>
+                                            <th style="text-align: center; width: 250px">折扣</th>
+                                            <th style="text-align: center">到期日期</th>
+                                            <th style="text-align: center">数量</th>
+                                            <th style="text-align: center">操作</th>
+
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <!--  表格开始-->
+                                        <tr th:each="item:${coupons}">
+                                            <!-- 优惠券编号 -->
+                                            <td th:text="${item.couponNum}"></td>
+                                            <!-- 折扣 -->
+                                            <td th:text="${item.discount}"></td>
+                                            <!-- 日期 -->
+                                            <td th:text="${item.term}"></td>
+                                            <!-- 数量 -->
+                                            <td th:text="${item.count}"></td>
+
+                                            <!-- 操作 -->
+                                            <td>
+                                                <div class="btn-group">
+
+                                                    <a class="btn btn-md btn-danger del" title="删除" th:id="${item.couponNum}"
+                                                       data-toggle="tooltip">
+                                                        <i class="mdi mdi-window-close"></i>
+                                                    </a>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+
+                                <!-- 表格结束 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!--End 页面主要内容-->
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/perfect-scrollbar.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.cookie.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/main.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/Chart.min.js}"></script>
+<!--时间日期选择器-->
+<script type="text/javascript" th:src="@{/js/momentjs/moment.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/momentjs/locale/zh-cn.min.js}"></script>
+
+
+<script>
+    // 新增成功提示
+    function addTip() {
+        alert("添加成功！")
+    };
+
+    // 修改成功提示
+    function eidtTip() {
+        alert("修改成功！")
+    }
+    // 删除
+    $(".del").click(
+        function () {
+            console.log($(this).attr("id"))
+            var flag = confirm("确定要删除吗？");
+            if (flag) {
+                $.ajax({
+                    url: "/admin/coupon/del",
+                    type: "POST",
+                    data: {pId: $(this).attr("id")},
+                    success: function (data) {
+                        alert("删除成功");
+                        location.reload();
+                    },
+                    error: function (data) {
+                        alert("删除失败");
+                    },
+                })
+
+            }
+        }
+    )
+
+
+</script>
+</body>
+</html>
