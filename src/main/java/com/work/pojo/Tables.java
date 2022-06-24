@@ -6,11 +6,11 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Id;
 
-@org.springframework.data.relational.core.mapping.Table(name = "table")
+@org.springframework.data.relational.core.mapping.Table(name = "tables")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Table {
+public class Tables {
 
     /**
      * 用餐人数

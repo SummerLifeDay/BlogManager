@@ -1,19 +1,19 @@
 package com.work.service;
 
-import com.work.pojo.Table;
+import com.work.pojo.Tables;
 
 import java.util.List;
 
 public interface TableService {
-    List<Table> selectAll();
+    List<Tables> selectAll();
 
-    Table selectOneByNum(int dinerNum);
+    Tables selectOneByNum(int dinerNum);
 
     int updateState(int dinerNum, int isFree);
 
-    int add(Table table);
+    int add(Tables tables);
 
-    int edit(Table table);
+    int edit(Tables tables);
 
     int delete(int dinerNum);
 }

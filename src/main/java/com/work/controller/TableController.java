@@ -1,6 +1,6 @@
 package com.work.controller;
 
-import com.work.pojo.Table;
+import com.work.pojo.Tables;
 import com.work.service.impl.TableServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,18 +29,18 @@ public class TableController {
     @ResponseBody
     @GetMapping("/admin/table/all")
     public ModelAndView selectAll(){
-        return new ModelAndView(toIndex(), "tables", selectAll());
+        return new ModelAndView(toIndex(), "tables", service.selectAll());
     }
 
     @PostMapping(value = "/admin/table/add")
     public ModelAndView add(int isFree, int totalNum, int isBox){
-        service.add(new Table(null, isFree, totalNum, isBox));
+        service.add(new Tables(null, isFree, totalNum, isBox));
         return selectAll();
     }
 
     @PostMapping(value = "/admin/table/update")
     public ModelAndView update(int dinerNum, int isFree, int totalNum, int isBox){
-        service.edit(new Table(dinerNum, isFree, totalNum, isBox));
+        service.edit(new Tables(dinerNum, isFree, totalNum, isBox));
         return selectAll();
     }
 
