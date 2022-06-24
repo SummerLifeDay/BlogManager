@@ -34,13 +34,13 @@ public class CouponController {
 
     @PostMapping(value = "/admin/coupon/add")
     public ModelAndView add(double discount, int count, String term){
-        service.add(new Coupon(discount, UUID.randomUUID().toString(), term, count));
+        service.add(new Coupon(UUID.randomUUID().toString(), discount,  term, count));
         return selectAll();
     }
 
     @PostMapping(value = "/admin/coupon/del")
-    public ModelAndView del(int dinerNum){
-        service.delete(dinerNum);
+    public ModelAndView del(String couponNum){
+        service.delete(couponNum);
         return selectAll();
     }
 }

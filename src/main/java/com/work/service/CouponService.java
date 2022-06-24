@@ -12,5 +12,5 @@ public interface CouponService {
 
     int edit(Coupon coupon);
 
-    int delete(int couponNum);
+    int delete(String couponNum);
 }

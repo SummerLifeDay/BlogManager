@@ -30,7 +30,7 @@ public class CouPonServiceImpl implements CouponService {
     }
 
     @Override
-    public int delete(int couponNum) {
+    public int delete(String couponNum) {
         return mapper.deleteByPrimaryKey(couponNum);
     }
 }
