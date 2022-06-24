@@ -25,6 +25,8 @@ public class StaffController {
         return "login";
     }
 
+
+
     @ResponseBody
     @RequestMapping(value = "/loginIn", method = RequestMethod.POST)
     public ModelAndView login(String userName, String password){
@@ -44,6 +46,12 @@ public class StaffController {
     @RequestMapping("/unauth")
     public Object unauth(){
         return new Message(-1, "没有访问权限");
+    }
+
+    @ResponseBody
+    @RequestMapping("/loginone")
+    public ModelAndView unauthone(){
+        return new ModelAndView("index");
     }
 
     @ResponseBody
