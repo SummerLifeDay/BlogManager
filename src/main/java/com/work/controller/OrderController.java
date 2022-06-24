@@ -39,6 +39,14 @@ public class OrderController {
         return mav;
     }
 
+    @ResponseBody
+    @GetMapping("/admin/manager")
+    public ModelAndView manager(){
+        ModelAndView mav = new ModelAndView(toIndex());
+        mav.addObject("manager", service.selectAll());
+        return mav;
+    }
+
 
     @PostMapping(value = "/admin/order/add")
     public ModelAndView add(String customer, double price, int useCoupon, int useTable){
