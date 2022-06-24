@@ -34,17 +34,18 @@
 
       <!-- logo -->
       <div id="logo" class="sidebar-header">
-        <a href="/loginIn"><img th:src="@{/images/logo-sidebar.jpg}" title="Canting" alt="Canting" /></a>
+        <a href="/index"><img th:src="@{/images/logo-sidebar.jpg}" title="Canting" alt="Canting" /></a>
       </div>
       <div class="lyear-layout-sidebar-info lyear-scroll">
 
         <nav class="sidebar-main">
           <ul class="nav-drawer">
-            <li class="nav-item"> <a href="/loginIn"><i class="mdi mdi-home"></i> <span>后台首页</span></a> </li>
+            <li class="nav-item active"> <a href="/index"><i class="mdi mdi-home"></i> <span>后台首页</span></a> </li>
             <li class="nav-item"><a href="/admin/order"><i class="mdi mdi-room-service"></i> 点菜中心</a></li>
-            <li class="nav-item"><a href="/admin/product/all"><i class="mdi mdi-food"></i>菜品管理</a></li>
-            <li class="nav-item"><a href="/admin/manage/index"><i class="mdi mdi-clipboard"></i> 订单管理</a></li>
-            <li class="nav-item active"><a href="javascript:location.reload();"><i class="mdi mdi-account"></i> 会员管理</a></li>
+            <li class="nav-item"><a href="/admin/product"><i class="mdi mdi-food"></i>菜品管理</a></li>
+            <li class="nav-item"><a href="/admin/manage"><i class="mdi mdi-clipboard"></i> 订单管理</a></li>
+            <li class="nav-item"><a href="/admin/customer"><i class="mdi mdi-account"></i> 会员管理</a></li>
+            <li class="nav-item"><a href="/admin/coupon"><i class="mdi mdi-store"></i> 优惠券管理</a></li>
           </ul>
         </nav>
 

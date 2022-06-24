@@ -2,9 +2,59 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Error</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>哎呀呀...页面找不到啦~</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/404.css}" >
 </head>
 <body>
-    <h1>噢噢，你貌似导致了一个错误</h1>
+<div class="container">
+    <ul id="scene">
+        <li class="layer" data-depth="0.1">
+            <img class="sun" th:src="@{/images/sun.jpg}">
+        </li>
+        <li class="layer" data-depth="0.2">
+            <img class="cloud1" th:src="@{/images/cloud1.jpg}">
+            <img class="cloud2" th:src="@{/images/cloud2.jpg}">
+            <img class="cloud3" th:src="@{/images/cloud3.jpg}">
+        </li>
+        <li class="layer" data-depth="0.3">
+            <img class="mountain" th:src="@{/images/mountain.jpg}">
+        </li>
+        <li class="layer" data-depth="0.5">
+            <div class="balloon-holder" id="balloon-holder">
+                <img class="balloon" th:src="@{/images/fire_balloon.jpg}" onclick="location='/index'"/>
+                <span class="words" id="words">页面找不到啦，坐热气球回去吧~</span>
+            </div>
+
+        </li>
+        <li class="layer" data-depth="0.6">
+            <div class="wave depth-3"></div>
+        </li>
+        <li class="layer" data-depth="0.8"><img class="logo" th:src="@{/images/404Logo.jpg}"/></li>
+        <li class="layer" data-depth="0.5">
+            <div class="wave depth-2"></div>
+        </li>
+
+        <li class="layer" data-depth="0.4">
+            <div class="wave depth-1"></div>
+        </li>
+    </ul>
+</div>
+
+
+<!-- Scripts -->
+<script  th:src="@{/js/parallax.js}"></script>
+<script>
+    var scene = document.getElementById('scene');
+    var parallax = new Parallax(scene);
+    var balloon = document.getElementById('balloon-holder');
+    var words = document.getElementById('words')
+    balloon.onmouseover = function () {
+        words.className = "words_on";
+    };
+    balloon.onmouseout = function () {
+        words.className = "words";
+    };
+</script>
 </body>
 </html>
