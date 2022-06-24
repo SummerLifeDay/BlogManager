@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,10 +10,10 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-touch-fullscreen" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/animate.min.css">
-<link rel="stylesheet" type="text/css" href="css/style.min.css">
+<link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" th:href="@{/css/materialdesignicons.min.css}">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+<link rel="stylesheet" type="text/css" href="css/animate.min.css" th:href="@{/css/animate.min.css}">
+<link rel="stylesheet" type="text/css" href="css/style.min.css" th:href="@{/css/style.min.css}">
 </head>
 
 <body>
@@ -31,36 +31,36 @@
   <div class="lyear-layout-container">
     <!--左侧导航-->
     <aside class="lyear-layout-sidebar">
-      
+
       <!-- logo -->
       <div id="logo" class="sidebar-header">
-        <a href="index.html"><img src="images/logo-sidebar.jpg" title="Canting" alt="Canting" /></a>
+        <a href="/loginIn"><img th:src="@{/images/logo-sidebar.jpg}" title="Canting" alt="Canting" /></a>
       </div>
-      <div class="lyear-layout-sidebar-info lyear-scroll"> 
-        
+      <div class="lyear-layout-sidebar-info lyear-scroll">
+
         <nav class="sidebar-main">
           <ul class="nav-drawer">
-            <li class="nav-item"> <a href="index.html"><i class="mdi mdi-home"></i> <span>后台首页</span></a> </li>
-            <li class="nav-item"><a href="orders.html"><i class="mdi mdi-room-service"></i> 点菜中心</a></li>
-            <li class="nav-item"><a href="product.html"><i class="mdi mdi-food"></i>菜品管理</a></li>
-            <li class="nav-item"><a href="manage.html"><i class="mdi mdi-clipboard"></i> 订单管理</a></li>
-            <li class="nav-item active"><a href="index.html"><i class="mdi mdi-account"></i> 会员管理</a></li>
+            <li class="nav-item"> <a href="/loginIn"><i class="mdi mdi-home"></i> <span>后台首页</span></a> </li>
+            <li class="nav-item"><a href="/admin/order"><i class="mdi mdi-room-service"></i> 点菜中心</a></li>
+            <li class="nav-item"><a href="/admin/product/all"><i class="mdi mdi-food"></i>菜品管理</a></li>
+            <li class="nav-item"><a href="/admin/manage/index"><i class="mdi mdi-clipboard"></i> 订单管理</a></li>
+            <li class="nav-item active"><a href="javascript:location.reload();"><i class="mdi mdi-account"></i> 会员管理</a></li>
           </ul>
         </nav>
-        
+
         <div class="sidebar-footer">
           <p class="copyright">Copyright &copy; 2022. <a target="_blank" href="index.html">神奇小餐厅</a> All rights reserved.</p>
         </div>
       </div>
-      
+
     </aside>
     <!--End 左侧导航-->
-    
+
     <!--头部信息-->
     <header class="lyear-layout-header">
-      
+
       <nav class="navbar">
-      
+
         <div class="navbar-left">
           <div class="lyear-aside-toggler">
             <span class="lyear-toggler-bar"></span>
@@ -68,13 +68,13 @@
             <span class="lyear-toggler-bar"></span>
           </div>
         </div>
-        
+
         <ul class="navbar-right d-flex align-items-center">
-         
+
           <!--切换主题配色-->
-		  <li class="dropdown dropdown-skin">
-		    <span data-toggle="dropdown" class="icon-item"><i class="mdi mdi-palette"></i></span>
-			<ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
+          <li class="dropdown dropdown-skin">
+            <span data-toggle="dropdown" class="icon-item"><i class="mdi mdi-palette"></i></span>
+            <ul class="dropdown-menu dropdown-menu-right" data-stopPropagation="true">
               <li class="drop-title"><p>主题</p></li>
               <li class="drop-skin-li clearfix">
                 <span class="inverse">
@@ -90,8 +90,8 @@
                   <label for="site_theme_3"></label>
                 </span>
               </li>
-			  <li class="drop-title"><p>LOGO</p></li>
-			  <li class="drop-skin-li clearfix">
+              <li class="drop-title"><p>LOGO</p></li>
+              <li class="drop-skin-li clearfix">
                 <span class="inverse">
                   <input type="radio" name="logo_bg" value="default" id="logo_bg_1" checked>
                   <label for="logo_bg_1"></label>
@@ -124,34 +124,34 @@
                   <input type="radio" name="logo_bg" value="color_8" id="logo_bg_8">
                   <label for="logo_bg_8"></label>
                 </span>
-			  </li>
-			  <li class="drop-title"><p>头部</p></li>
-			  <li class="drop-skin-li clearfix">
+              </li>
+              <li class="drop-title"><p>头部</p></li>
+              <li class="drop-skin-li clearfix">
                 <span class="inverse">
                   <input type="radio" name="header_bg" value="default" id="header_bg_1" checked>
-                  <label for="header_bg_1"></label>                      
-                </span>                                                    
-                <span>                                                     
+                  <label for="header_bg_1"></label>
+                </span>
+                <span>
                   <input type="radio" name="header_bg" value="color_2" id="header_bg_2">
-                  <label for="header_bg_2"></label>                      
-                </span>                                                    
-                <span>                                                     
+                  <label for="header_bg_2"></label>
+                </span>
+                <span>
                   <input type="radio" name="header_bg" value="color_3" id="header_bg_3">
                   <label for="header_bg_3"></label>
                 </span>
                 <span>
                   <input type="radio" name="header_bg" value="color_4" id="header_bg_4">
-                  <label for="header_bg_4"></label>                      
-                </span>                                                    
-                <span>                                                     
+                  <label for="header_bg_4"></label>
+                </span>
+                <span>
                   <input type="radio" name="header_bg" value="color_5" id="header_bg_5">
-                  <label for="header_bg_5"></label>                      
-                </span>                                                    
-                <span>                                                     
+                  <label for="header_bg_5"></label>
+                </span>
+                <span>
                   <input type="radio" name="header_bg" value="color_6" id="header_bg_6">
-                  <label for="header_bg_6"></label>                      
-                </span>                                                    
-                <span>                                                     
+                  <label for="header_bg_6"></label>
+                </span>
+                <span>
                   <input type="radio" name="header_bg" value="color_7" id="header_bg_7">
                   <label for="header_bg_7"></label>
                 </span>
@@ -159,9 +159,9 @@
                   <input type="radio" name="header_bg" value="color_8" id="header_bg_8">
                   <label for="header_bg_8"></label>
                 </span>
-				</li>
-			  <li class="drop-title"><p>侧边栏</p></li>
-			  <li class="drop-skin-li clearfix">
+              </li>
+              <li class="drop-title"><p>侧边栏</p></li>
+              <li class="drop-skin-li clearfix">
                 <span class="inverse">
                   <input type="radio" name="sidebar_bg" value="default" id="sidebar_bg_1" checked>
                   <label for="sidebar_bg_1"></label>
@@ -194,30 +194,30 @@
                   <input type="radio" name="sidebar_bg" value="color_8" id="sidebar_bg_8">
                   <label for="sidebar_bg_8"></label>
                 </span>
-			  </li>
-		    </ul>
-		  </li>
+              </li>
+            </ul>
+          </li>
           <!--切换主题配色end-->
           <li class="dropdown dropdown-profile">
             <a href="javascript:void(0)" data-toggle="dropdown" class="dropdown-toggle">
-              <img class="img-avatar img-avatar-48 m-r-10" src="images/users/avatar.jpg" alt="柴林" />
+              <img class="img-avatar img-avatar-48 m-r-10" th:src="@{/images/users/avatar.jpg}" alt="柴林" />
               <span>管理员</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
-              
+
               <li>
                 <a class="dropdown-item" href="javascript:void(0)"><i class="mdi mdi-delete"></i> 清空缓存</a>
               </li>
               <li class="dropdown-divider"></li>
               <li>
-                <a class="dropdown-item" href="login.html"><i class="mdi mdi-logout-variant"></i> 退出登录</a>
+                <a class="dropdown-item" href=/login><i class="mdi mdi-logout-variant"></i> 退出登录</a>
               </li>
             </ul>
           </li>
         </ul>
-        
+
       </nav>
-      
+
     </header>
     <!--End 头部信息-->
     
@@ -225,13 +225,13 @@
   </div>
 </div>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/popper.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/perfect-scrollbar.min.js"></script>
-<script type="text/javascript" src="js/jquery.cookie.min.js"></script>
-<script type="text/javascript" src="js/main.min.js"></script>
-<script type="text/javascript" src="js/Chart.min.js"></script>
+<script type="text/javascript" src="js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" src="js/popper.min.js" th:src="@{/js/popper.min.js}"></script>
+<script type="text/javascript" src="js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" src="js/perfect-scrollbar.min.js" th:src="@{/js/perfect-scrollbar.min.js}"></script>
+<script type="text/javascript" src="js/jquery.cookie.min.js" th:src="@{/js/jquery.cookie.min.js}"></script>
+<script type="text/javascript" src="js/main.min.js" th:src="@{/js/main.min.js}"></script>
+<script type="text/javascript" src="js/Chart.min.js" th:src="@{/js/Chart.min.js}"></script>
 
 </script>
 </body>
