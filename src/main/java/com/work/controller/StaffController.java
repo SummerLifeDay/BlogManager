@@ -46,13 +46,7 @@ public class StaffController {
     public ModelAndView unauth(){
         return new ModelAndView("/unauth");
     }
-
-    @ResponseBody
-    @RequestMapping("/loginone")
-    public ModelAndView unauthone(){
-        return new ModelAndView("index");
-    }
-
+    
     @ResponseBody
     @RequestMapping(value = "/reg", method = RequestMethod.POST)
     public Object reg(String userName,String password, int role, String nickName){
