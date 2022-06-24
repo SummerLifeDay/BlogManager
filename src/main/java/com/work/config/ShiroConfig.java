@@ -55,7 +55,7 @@ public class ShiroConfig {
         map.put("/upload", "roles[0]");
 
         //暂先注释,测试接口有无问题
-        //        map.put("/**", "authc");
+//        map.put("/**", "authc");
         factoryBean.setFilterChainDefinitionMap(map);
 
         return factoryBean;
