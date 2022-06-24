@@ -256,7 +256,7 @@
                                                 <form action="/admin/product/add" method="post">
                                                     <div class="form-group row">
                                                         <label for="inputPName"
-                                                               class="col-sm-2 col-form-label">菜名：</label>
+                                                               class="col-sm-2 col-form-label">菜名</label>
                                                         <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="inputPName"
                                                                    name="pName">
@@ -264,7 +264,7 @@
                                                     </div>
                                                     <div class="form-group row">
                                                         <label for="inputPirce"
-                                                               class="col-sm-2 col-form-label">价格：</label>
+                                                               class="col-sm-2 col-form-label">价格</label>
                                                         <div class="col-sm-10">
                                                             <input type="number" class="form-control" id="inputPirce"
                                                                    name="price">
@@ -273,7 +273,7 @@
 
                                                     <div class="form-group row">
                                                         <label for="inputPrserve"
-                                                               class="col-sm-2 col-form-label">库存：</label>
+                                                               class="col-sm-2 col-form-label">库存</label>
                                                         <div class="col-sm-10">
                                                             <input type="number" class="form-control" id="inputPrserve"
                                                                    name="reserve">
@@ -283,8 +283,8 @@
                                                     <!-- 图片 -->
                                                     <div class="form-group row">
                                                         <label for="inputPrserve"
-                                                               class="col-sm-4 col-form-label">图片地址：</label>
-                                                        <div class="col-sm-9">
+                                                               class="col-sm-2 col-form-label">图片</label>
+                                                        <div class="col-sm-10">
                                                             <input type="text" class="form-control" id="inputImgUrl"
                                                                    name="imgUrl">
                                                         </div>
@@ -352,11 +352,88 @@
                                                         <i class="mdi mdi-window-close"></i>
                                                     </a>
                                                 </div>
+                                                <!-- 修改菜品弹窗 -->
+                                                <div class="modal fade" id="editProduct" tabindex="-1" role="dialog"
+                                                     aria-labelledby="editProduct" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h6 class="modal-title">修改菜品</h6>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <!-- 新增菜品表单 -->
+                                                                <form action="/admin/product/update" method="post">
+                                                                    <div class="form-group row">
+                                                                        <label for="inputPName"
+                                                                               class="col-sm-2 col-form-label">ID</label>
+                                                                        <div class="col-sm-10">
+                                                                            <input type="number" class="form-control" id="inputPName"
+                                                                                   name="pId">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label for="inputPName"
+                                                                               class="col-sm-2 col-form-label">菜名</label>
+                                                                        <div class="col-sm-10">
+                                                                            <input type="text" class="form-control" id="inputPName"
+                                                                                   name="pName">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group row">
+                                                                        <label for="inputPirce"
+                                                                               class="col-sm-2 col-form-label">价格</label>
+                                                                        <div class="col-sm-10">
+                                                                            <input type="number" class="form-control" id="inputPirce"
+                                                                                   name="price">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="form-group row">
+                                                                        <label for="inputPrserve"
+                                                                               class="col-sm-2 col-form-label">库存</label>
+                                                                        <div class="col-sm-10">
+                                                                            <input type="number" class="form-control" id="inputPrserve"
+                                                                                   name="reserve">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <!-- 图片 -->
+                                                                    <div class="form-group row">
+                                                                        <label for="inputPrserve"
+                                                                               class="col-sm-2 col-form-label">图片</label>
+                                                                        <div class="col-sm-10">
+                                                                            <input type="text" class="form-control" id="inputImgUrl"
+                                                                                   name="imgUrl">
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                                data-dismiss="modal">取消
+                                                                        </button>
+                                                                        <button type="submit" class="btn btn-primary"
+                                                                                onclick="addTip()">修改
+                                                                        </button>
+                                                                    </div>
+                                                                </form>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- 修改菜品弹窗结束 -->
                                             </td>
                                         </tr>
                                         </tbody>
                                     </table>
                                 </div>
+
+
 
                                 <!-- 表格结束 -->
                             </div>
@@ -383,6 +460,10 @@
         alert("添加成功！")
     };
 
+    // 修改成功提示
+    function eidtTip() {
+        alert("修改成功！")
+    }
     // 删除
     $(".del").click(
         function () {
