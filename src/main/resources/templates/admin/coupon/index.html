@@ -269,7 +269,7 @@
                                                         <label for="inputDiscount"
                                                                class="col-sm-2 col-form-label">折扣</label>
                                                         <div class="col-sm-10">
-                                                            <input type="number" class="form-control" id="inputDiscount"
+                                                            <input type="text" class="form-control" id="inputDiscount"
                                                                    name="discount">
                                                         </div>
                                                     </div>
@@ -318,7 +318,7 @@
                                 <!-- 内层div -->
                                 <div class="table-responsive">
                                     <!-- 表格 -->
-                                    <table class="table table-bordered table-hover" id="ProductList" style="text-align: center">
+                                    <table class="table table-bordered table-hover" id="CouponList" style="text-align: center">
                                         <!-- 表头 -->
                                         <thead>
                                         <tr class="table-hover">
@@ -346,7 +346,6 @@
                                             <!-- 操作 -->
                                             <td>
                                                 <div class="btn-group">
-
                                                     <a class="btn btn-md btn-danger del" title="删除" th:id="${item.couponNum}"
                                                        data-toggle="tooltip">
                                                         <i class="mdi mdi-window-close"></i>
@@ -391,10 +390,7 @@
         alert("添加成功！")
     };
 
-    // 修改成功提示
-    function eidtTip() {
-        alert("修改成功！")
-    }
+
     // 删除
     $(".del").click(
         function () {
@@ -407,7 +403,7 @@
                     data: {pId: $(this).attr("id")},
                     success: function (data) {
                         alert("删除成功");
-                        location.reload();
+                        location.assign('/admin/coupon');
                     },
                     error: function (data) {
                         alert("删除失败");
