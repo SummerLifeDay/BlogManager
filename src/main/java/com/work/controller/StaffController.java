@@ -25,23 +25,20 @@ public class StaffController {
         return "login";
     }
 
-
-
-    @ResponseBody
     @RequestMapping(value = "/loginIn", method = RequestMethod.POST)
-    public ModelAndView login(String userName, String password){
+    public Object login(String userName, String password){
         Log.print(userName + " : " + password);
 
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(userName, password);
         try {
             subject.login(token);
-            return new ModelAndView("index");
+            return "redirect:/index";
         }catch (UnknownAccountException | IncorrectCredentialsException e){
             return new ModelAndView("login");
         }
     }
-    
+
     @RequestMapping("/unauth")
     public ModelAndView unauth(){
         return new ModelAndView("/unauth");

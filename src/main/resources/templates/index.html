@@ -233,7 +233,7 @@
               <div class="card-body clearfix">
                 <div class="flex-box">
                   <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-currency-cny fs-22"></i></span>
-                  <span class="fs-22 lh-22">102,125.00</span>
+                  <span class="fs-22 lh-22" th:text="${countMoney}">0.00</span>
                 </div>
                 <div class="text-right">营业额</div>
               </div>
@@ -245,7 +245,7 @@
               <div class="card-body clearfix">
                 <div class="flex-box">
                   <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-account fs-22"></i></span>
-                  <span class="fs-22 lh-22">920,000</span>
+                  <span class="fs-22 lh-22" th:text="${countCustomer}">920,000</span>
                 </div>
                 <div class="text-right">客户总数</div>
               </div>
@@ -257,7 +257,7 @@
               <div class="card-body clearfix">
                 <div class="flex-box">
                   <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi mdi-food fs-22"></i></span>
-                  <span class="fs-22 lh-22">34,005,000</span>
+                  <span class="fs-22 lh-22" th:text="${countProduct}">34,005,000</span>
                 </div>
                 <div class="text-right">菜品总数</div>
               </div>
@@ -269,7 +269,7 @@
               <div class="card-body clearfix">
                 <div class="flex-box">
                   <span class="img-avatar img-avatar-48 bg-translucent"><i class="mdi mdi-clipboard fs-22"></i></span>
-                  <span class="fs-22 lh-22">153</span>
+                  <span class="fs-22 lh-22" th:text="${countOrder}">153</span>
                 </div>
                 <div class="text-right">订单总数</div>
               </div>
