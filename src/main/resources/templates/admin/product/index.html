@@ -477,7 +477,7 @@
                     data: {pId: $(this).attr("id")},
                     success: function (data) {
                         alert("删除成功");
-                        location.reload();
+                        location.assign('/admin/product');
                     },
                     error: function (data) {
                         alert("删除失败");
