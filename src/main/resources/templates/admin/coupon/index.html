@@ -36,18 +36,22 @@
 
             <!-- logo -->
             <div id="logo" class="sidebar-header">
-                <a href="/index"><img th:src="@{/images/logo-sidebar.jpg}" title="Canting" alt="Canting" /></a>
+                <a href="index.html"><img th:src="@{/images/logo-sidebar.jpg}" title="Canting" alt="Canting"/></a>
             </div>
             <div class="lyear-layout-sidebar-info lyear-scroll">
-
                 <nav class="sidebar-main">
                     <ul class="nav-drawer">
-                        <li class="nav-item active"> <a href="/index"><i class="mdi mdi-home"></i> <span>后台首页</span></a> </li>
-                        <li class="nav-item"><a href="/admin/order"><i class="mdi mdi-room-service"></i> 点菜中心</a></li>
-                        <li class="nav-item"><a href="/admin/product"><i class="mdi mdi-food"></i>菜品管理</a></li>
-                        <li class="nav-item"><a href="/admin/manage"><i class="mdi mdi-clipboard"></i> 订单管理</a></li>
-                        <li class="nav-item"><a href="/admin/customer"><i class="mdi mdi-account"></i> 会员管理</a></li>
-                        <li class="nav-item"><a href="/admin/coupon"><i class="mdi mdi-store"></i> 优惠券管理</a></li>
+                        <li class="nav-item"><a href="index.html"><i class="mdi mdi-home"></i> <span>后台首页</span></a>
+                        </li>
+                        <li class="nav-item"><a href="order.html"><i class="mdi mdi-room-service"></i><span>点菜中心</span></a>
+                        </li>
+                        <li class="nav-item active"><a href="index.html"><i
+                                class="mdi mdi-food"></i><span>菜品管理</span></a>
+                        </li>
+                        <li class="nav-item"><a href="manage.html"><i
+                                class="mdi mdi-clipboard"></i><span>订单管理</span></a></li>
+                        <li class="nav-item"><a href="customer.html"><i
+                                class="mdi mdi-account"></i><span>会员管理</span></a></li>
                     </ul>
                 </nav>
 
@@ -282,12 +286,13 @@
                                                         <label for="inputPrserve"
                                                                class="col-sm-2 col-form-label">库存</label>
                                                         <div class="col-sm-10">
-                                                            <input class="form-control" type="text" data-provide="datetimepicker" name="term" placeholder="请选择具体时间" value="" data-side-by-side="true" data-format="YYYY-MM-DD HH:mm">
+                                                            <input class="form-control" type="text"
+                                                                   data-provide="datetimepicker" name="term"
+                                                                   placeholder="请选择具体时间" value=""
+                                                                   data-side-by-side="true"
+                                                                   data-format="YYYY-MM-DD HH:mm">
                                                         </div>
-
-
                                                     </div>
-
 
 
                                                     <div class="modal-footer">
@@ -314,7 +319,8 @@
                                 <!-- 内层div -->
                                 <div class="table-responsive">
                                     <!-- 表格 -->
-                                    <table class="table table-bordered table-hover" id="CouponList" style="text-align: center">
+                                    <table class="table table-bordered table-hover" id="CouponList"
+                                           style="text-align: center">
                                         <!-- 表头 -->
                                         <thead>
                                         <tr class="table-hover">
@@ -342,7 +348,8 @@
                                             <!-- 操作 -->
                                             <td>
                                                 <div class="btn-group">
-                                                    <a class="btn btn-md btn-danger del" title="删除" th:id="${item.couponNum}"
+                                                    <a class="btn btn-md btn-danger del" title="删除"
+                                                       th:id="${item.couponNum}"
                                                        data-toggle="tooltip">
                                                         <i class="mdi mdi-window-close"></i>
                                                     </a>
@@ -353,7 +360,6 @@
                                         </tbody>
                                     </table>
                                 </div>
-
 
 
                                 <!-- 表格结束 -->
@@ -396,7 +402,7 @@
                 $.ajax({
                     url: "/admin/coupon/del",
                     type: "POST",
-                    data: {pId: $(this).attr("id")},
+                    data: {couponNum: $(this).attr("id")},
                     success: function (data) {
                         alert("删除成功");
                         location.assign('/admin/coupon');
